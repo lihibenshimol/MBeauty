@@ -37,8 +37,8 @@ export function AppHeader() {
                 <NavLink to="/about">עלינו</NavLink>|
                 {/* <NavLink to="/dashboard">Dashboard</NavLink>| */}
                 <NavLink to="/store">חנות</NavLink> |
-                <NavLink to="/contact">יצירת קשר</NavLink> |
-                {admin && <NavLink to="/admin-only">עמוד מנהל</NavLink>}
+                <NavLink to="/contact">יצירת קשר</NavLink>
+                {admin &&  <NavLink to="/admin-only">| עמוד מנהל</NavLink>}
             </nav>
 
         </section>

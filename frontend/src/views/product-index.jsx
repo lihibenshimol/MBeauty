@@ -39,7 +39,11 @@ export function ProductIndex() {
 
 
     return (
-        <section className="product-index main-layout">
+        <section className="product-index">
+
+            <div className="serach-bar">
+                <input type="text" placeholder="חפשי מוצר..." />
+            </div>
 
             <ProductList products={products} onRemoveProduct={onRemoveProduct} />
             {/* <SideBar onSetFilter={onSetFilter} /> */}
