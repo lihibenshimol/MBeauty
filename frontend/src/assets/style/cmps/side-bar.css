@@ -1,0 +1,16 @@
+.side-bar:hover  {
+    padding-right: 100px;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 180px;
+    min-height: 80vh;
+    background-color: var(--clr2);
+    border-radius: 20px;
+    padding-top: 20px;
+    transition: .4s;
+    overflow: hidden;
+}

@@ -1,0 +1,45 @@
+
+.contact {
+    // background-color: red;
+    margin: 0 auto;
+    padding: 100px 250px;
+
+    .map {
+        width: 35%;
+        height: 40vh;
+    }
+
+
+    .contact-form {  
+        width: 30%;
+        height: 50vh;
+        position: absolute;
+        left: 60%;
+        
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            // width: 60%;
+            gap: 20px;
+            direction: rtl;
+        }
+
+        textarea {
+            font-family: arimo;
+            resize: none;
+            padding: 10px;
+            height: 100px;
+            border-radius: 4px;
+        }
+
+        .actions {
+            direction: ltr;
+            
+            button {
+                padding: 10px;
+                border-radius: 4px;
+            }
+        }
+    }
+}

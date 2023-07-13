@@ -1,0 +1,210 @@
+.home {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+
+    .main-hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 170px;
+        background-image: url('../../img/hero/hero1.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 90vh;
+        width: 100vw;
+
+        .title {
+            top: 150px;
+            font-size: 12rem;
+            font-family: lora;
+            text-shadow: 1px 1px 6px #aa7d49c2;
+            color: #fdf4e6;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            width: 350px;
+            height: 60px;
+
+            .booking,
+            .cta {
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                min-width: 120px;
+                transition: .5s;
+                text-shadow: 1px 1px 2px #3e352b8a;
+                color: #fdf4e6;
+                font-family: pfennig;
+                border: 1px solid #fdf4e6;
+                background-color: #fdf4e631;
+                padding: 20px;
+
+                &:hover {
+                    font-size: 1.7rem;
+                    cursor: pointer;
+                    background-color: rgba(92, 78, 56, 0.27);
+                }
+            }
+
+            .icon {
+                padding-bottom: 0px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        // background-color: blue;
+        // background: linear-gradient(178deg, #ffffff 0%, #ffffff 38%, rgba(252, 228, 148, 0.2117647059) 76%, rgb(177 177 177 / 58%) 100%);
+
+
+        .subtitle {
+            position: relative;
+            top: 90px;
+            font-size: 4rem;
+            font-family: lora;
+            color: $clr4;
+        }
+
+        .treatments-container {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // padding: 20px;
+
+            .treatments {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                max-width: 70vw;
+                justify-content: space-between;
+
+                .treatment {
+                    // padding-top: 15px;
+                    max-width: 200px;
+                    max-height: 200px;
+                    min-width: 100px;
+                    min-height: 100px;
+                    border-radius: 50%;
+                    // margin: 5px;
+                }
+            }
+        }
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 200px;
+        height: 200px;
+        perspective: 1000px;
+        /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+
+    .flip-card-back {
+        background-color: $clr2;
+        color: white;
+        transform: rotateY(180deg);
+        border-radius: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        // max-width: 200px;
+        // max-height: 200px;
+        // min-width: 100px;
+        // min-height: 100px;
+
+        h1,
+        span {
+            margin: 20px;
+        }
+    }
+
+
+    .text-info {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        text-align: center;
+        align-items: center;
+        font-size: 16px;
+        line-height: 26px;
+        background-color: #fefefe;
+        width: 95vw;
+        padding: 30px;
+        color: #413e33;
+        font-size: 1.5rem;
+
+        h1 {
+            font-size: 28px;
+            color: #f6f1e9;
+            font-weight: bold;
+            text-shadow: .5px .5px 2px #aa7d49c2;
+            font-family: lora;
+        }
+
+        .text {
+            max-width: 60vw;
+        }
+
+        ul {
+            list-style: inside;
+            line-height: 52px;
+            z-index: 2;
+        }
+
+        .element2 {
+            position: absolute;
+            right: 20px;
+            bottom: 0;
+            width: 320px;
+            height: 250px;
+        }
+
+    }
+
+}

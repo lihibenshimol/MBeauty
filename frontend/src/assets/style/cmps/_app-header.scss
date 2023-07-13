@@ -1,0 +1,35 @@
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+    padding: 0px 30px;
+    position: absolute;
+    right: 0;
+    direction: ltr;
+    z-index: 999;
+    font-family: 'assistant-light';
+    font-size: 1.1rem;
+
+    .logout-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $clr3;
+        cursor: pointer;
+        border-bottom: .1px solid black;
+    }
+}
+
+.app-header nav a {
+    margin: 0px 20px 0px 20px;
+}
+
+.app-header nav a.active {
+    color: #fdf4e6;
+    text-shadow: 1px 0px 1px rgba(136, 115, 94, 0.85);
+}
+
+.app-header .logo {
+    width: 130px;
+}

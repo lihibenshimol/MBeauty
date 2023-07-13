@@ -1,0 +1,25 @@
+/* Setup */
+@import './setup/variables';
+@import './setup/typography';
+
+/* Basics */
+@import './basics/base.css';
+@import './basics/helpers.css';
+@import './basics/layout';
+
+
+/* Views */
+@import './views/product-index';
+@import './views/product-filter';
+@import './views/product-details';
+@import './views/product-edit';
+@import './views/home';
+@import './views/contact';
+@import './views/dashboard.css';
+@import './views/about-us';
+
+/* Cmps */
+@import './cmps/app-header';
+@import './cmps/app-footer';
+@import './cmps/product-list';
+@import './cmps/side-bar.css';

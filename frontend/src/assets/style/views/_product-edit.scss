@@ -1,0 +1,15 @@
+.toy-edit {
+    width: 30vw;
+    margin: auto;
+    line-height: 50px;
+}
+
+.toy-edit form {
+    display: flex;
+    flex-direction: column;
+}
+
+.toy-edit .actions {
+    display: flex;
+    justify-content: space-between;
+}
