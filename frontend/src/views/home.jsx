@@ -57,7 +57,7 @@ export function HomePage() {
 
                     <div className="treatments">
                         {treatments.map((t, idx) => (
-                            <div className='flip-card'>
+                            <div className='flip-card' key={idx}>
                                 <div className='flip-card-inner'>
                                     <div className='flip-card-front treatment'>
                                         <img key={idx} className="treatment" src={require(`../assets/img/${t.type}.jpg`)} />
@@ -79,7 +79,8 @@ export function HomePage() {
                         <p className='first'>
                             הינו מכון קוסמטיקה בדימונה אשר מציע את כל פתרונות הקוסמטיקה המתקדמים במקום אחד, במחירים אטרקטיביים במיוחד ועם שירות מנצח.
                         </p>
-                        <p>
+                        <div
+                        >
                             <ul>
                                 מבין פתרונות האסתטיקה שאנחנו מציעות במכון:
                                 <li>
@@ -96,7 +97,7 @@ export function HomePage() {
                                 </li>
 
                             </ul>
-                        </p>
+                        </div>
                     </article>
                         <img className='element2' src={require('../assets/img/text-info2.png')} alt="" />
                 </div>
