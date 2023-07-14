@@ -1,12 +1,17 @@
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { ProductList } from "../cpms/product-list.jsx"
 import { loadProducts, removeProduct } from "../store/product-action.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
+import { productService } from "../services/product-service.js";
+import { ProductFilter } from "../cpms/product-filter.jsx";
 
 
 export function ProductIndex() {
     const products = useSelector((storeState) => storeState.productModule.products)
+    const [filterByToEdit, setFilterByToEdit] = useState(productService.getDefaultFilter())
+    const elInputRef = useRef(null)
+
 
     useEffect(() => {
         onLoadProducts()
@@ -33,21 +38,27 @@ export function ProductIndex() {
             })
     }
 
+
     function onSetFilter(filterBy) {
         onLoadProducts(filterBy)
     }
 
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        value = (type === 'number') ? +value : value
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+    }
+
 
     return (
-        <section className="product-index">
 
-            <div className="serach-bar">
-                <input type="text" placeholder="חפשי מוצר..." />
-            </div>
 
-            <ProductList products={products} onRemoveProduct={onRemoveProduct} />
-            {/* <SideBar onSetFilter={onSetFilter} /> */}
+            <section className="product-index">
+                    <ProductFilter onSetFilter={onSetFilter}/>
 
-        </section>
-    )
+                    <ProductList products={products} onRemoveProduct={onRemoveProduct} />
+                    {/* <SideBar onSetFilter={onSetFilter} /> */}
+
+            </section>
+            )
 }

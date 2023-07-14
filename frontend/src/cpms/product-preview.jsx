@@ -20,7 +20,7 @@ export function ProductPreview({ product, onRemoveProduct }) {
                 </div>
                 <p className="price">{product.price}₪</p>
 
-                <button>
+                <button className="add-to-bag-btn">
                     <span><BsBasket /></span> הוסף לסל
                 </button>
 
