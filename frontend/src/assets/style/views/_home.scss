@@ -19,11 +19,14 @@
         width: 100vw;
 
         .title {
-            top: 150px;
             font-size: 12rem;
             font-family: lora;
             text-shadow: 1px 1px 6px #aa7d49c2;
             color: #fdf4e6;
+
+            @include for-mobile-layout {
+                font-size: 5.5rem;
+            }
         }
 
         .actions {
@@ -47,7 +50,7 @@
                 border: 1px solid #fdf4e6;
                 background-color: rgb(187 175 156 / 29%);
                 padding: 20px;
-            
+
 
                 &:hover {
                     font-size: 1.7rem;
@@ -89,12 +92,19 @@
             align-items: center;
             // padding: 20px;
 
+          
+            
             .treatments {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 10px;
                 max-width: 70vw;
                 justify-content: center;
+                
+                @include for-mobile-layout {
+                    max-width: 90vw;
+                }
+
 
                 .treatment {
                     // padding-top: 15px;
@@ -103,7 +113,12 @@
                     min-width: 100px;
                     min-height: 100px;
                     border-radius: 50%;
-                    // margin: 5px;
+
+                    @include for-mobile-layout {
+                        width: 150px;
+                        height: 150px;
+                    }
+
                 }
             }
         }
@@ -114,6 +129,11 @@
         width: 200px;
         height: 200px;
         perspective: 1000px;
+
+        @include for-mobile-layout {
+            width: 150px;
+            height: 150px;
+        }
         /* Remove this if you don't want the 3D effect */
     }
 
@@ -180,6 +200,11 @@
         color: #413e33;
         font-size: 1.5rem;
 
+
+        @include for-mobile-layout {
+          font-size: 1.2rem;
+        }
+
         h1 {
             font-size: 28px;
             color: #f6f1e9;
@@ -196,6 +221,12 @@
             list-style: inside;
             line-height: 52px;
             z-index: 2;
+
+            @include for-mobile-layout {
+                line-height: 30px;
+                margin: 0;
+                padding: 0;
+              }
         }
 
         .element2 {
@@ -204,6 +235,10 @@
             bottom: 0;
             width: 320px;
             height: 250px;
+
+            @include for-mobile-layout {
+                bottom: -300px;
+              }
         }
 
     }
