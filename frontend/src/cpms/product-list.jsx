@@ -2,14 +2,14 @@
 import { ProductPreview } from "./product-preview.jsx";
 
 
-export function ProductList({ products, onRemoveProduct }) {
+export function ProductList({ products, onRemoveProduct, onAddToCart }) {
 
 
     return (
         <section className="product-list main-layout">
 
             {products.map(product => <div key={product._id} className="product">
-                <ProductPreview onRemoveProduct={onRemoveProduct} product={product} />
+                <ProductPreview onRemoveProduct={onRemoveProduct} product={product} onAddToCart={onAddToCart} />
         
             </div>
             )

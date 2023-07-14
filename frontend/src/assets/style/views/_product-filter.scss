@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 500px;
+    // width: 500px;
 
     @include for-mobile-layout {
         width: 100vw;

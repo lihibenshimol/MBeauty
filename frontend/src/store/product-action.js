@@ -1,5 +1,5 @@
 import { productService } from "../services/product-service.js"
-import { SET_PRODUCTS, SET_IS_LOADING, REMOVE_PRODUCT, UNDO_REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT } from './product-reducer.js'
+import { SET_PRODUCTS, SET_IS_LOADING, REMOVE_PRODUCT, UNDO_REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT, REMOVE_FROM_CART, ADD_TO_CART } from './product-reducer.js'
 import { store } from './store.js'
 
 export function loadProducts(filterBy) {
@@ -13,7 +13,7 @@ export function loadProducts(filterBy) {
             console.log('Had issues loading product', err)
             throw err
         })
-        .finally(()=>{
+        .finally(() => {
             store.dispatch({ type: SET_IS_LOADING, isLoading: false })
         })
 }
@@ -38,4 +38,18 @@ export function saveProduct(product) {
         .catch(err => {
             console.error('Cannot add todo:', err)
         })
+}
+
+export function addToCart(car) {
+    store.dispatch({
+        type: ADD_TO_CART,
+        car
+    })
+}
+
+export function removeFromCart(carId) {
+    store.dispatch({
+        type: REMOVE_FROM_CART,
+        carId
+    })
 }

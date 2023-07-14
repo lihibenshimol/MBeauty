@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { ProductList } from "../cpms/product-list.jsx"
-import { loadProducts, removeProduct } from "../store/product-action.js"
+import { addToCart, loadProducts, removeProduct } from "../store/product-action.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
 import { productService } from "../services/product-service.js";
 import { ProductFilter } from "../cpms/product-filter.jsx";
@@ -43,10 +43,10 @@ export function ProductIndex() {
         onLoadProducts(filterBy)
     }
 
-    function handleChange({ target }) {
-        let { value, name: field, type } = target
-        value = (type === 'number') ? +value : value
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+    function onAddToCart(product){
+        console.log(`Adding ${product.name.hebrew} to Cart`)
+        addToCart(product)
+        showSuccessMsg('Added to Cart')
     }
 
 
@@ -56,7 +56,7 @@ export function ProductIndex() {
             <section className="product-index">
                     <ProductFilter onSetFilter={onSetFilter}/>
 
-                    <ProductList products={products} onRemoveProduct={onRemoveProduct} />
+                    <ProductList products={products} onRemoveProduct={onRemoveProduct} onAddToCart={onAddToCart} />
                     {/* <SideBar onSetFilter={onSetFilter} /> */}
 
             </section>
