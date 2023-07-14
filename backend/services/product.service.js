@@ -11,23 +11,35 @@ module.exports = {
 }
 
 function query(filterBy) {
-    console.log('im heree');
     let filteredProducts = products
+    if (filterBy.name) {
+        const regex = new RegExp(filterBy.name, 'i');
+        filteredProducts = filteredProducts.filter(product => {
+            const englishMatch = regex.test(product.name.english);
+            const hebrewMatch = regex.test(product.name.hebrew);
+            return englishMatch || hebrewMatch;
+        });
+    }
     // if (filterBy.name) {
     //     const regex = new RegExp(filterBy.name, 'i')
-    //     filteredProducts = filteredProducts.filter(product => regex.test(product.name))
+    //     filteredProducts = filteredProducts.filter(product => regex.test(product.name.english))
     // }
-    
-    // if (filterBy.inStock) {
-    //     const isInStock = (filterBy.inStock === 'true') ? true : false
-    //     filteredProducts = filteredProducts.filter(product => product.inStock === isInStock)
+
+    // if (filterBy.name) {
+    //     const regex = new RegExp(filterBy.name, 'i')
+    //     filteredProducts = filteredProducts.filter(product => regex.test(product.name.hebrew))
     // }
-    
-    // if (filterBy.labels) {
-    //     filteredProducts = filteredProducts.filter(product => {
-    //         return  product.labels.some(label => filterBy.labels.includes(label))
-    //     })
-    // }
+
+    if (filterBy.inStock) {
+        const isInStock = (filterBy.inStock === 'true') ? true : false
+        filteredProducts = filteredProducts.filter(product => product.inStock === isInStock)
+    }
+
+    if (filterBy.labels) {
+        filteredProducts = filteredProducts.filter(product => {
+            return product.labels.some(label => filterBy.labels.includes(label))
+        })
+    }
 
     // if (filterBy.sortBy === 'name') {
     //     filteredProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name))
