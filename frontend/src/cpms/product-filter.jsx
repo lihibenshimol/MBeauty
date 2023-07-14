@@ -6,23 +6,23 @@ import { productService } from "../services/product-service.js"
 import { utilService } from "../services/util.service.js"
 
 
-export function ProductFilter({ onSetFilter}) {
+export function ProductFilter({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(productService.getDefaultFilter())
 
     const animatedComponents = makeAnimated();
-    const options = [
-        { value: 'product', label: 'Product' },
-        { value: 'bear', label: 'Bears' },
-        { value: 'animal', label: 'Animals' },
-        { value: 'doll', label: 'Dolls' },
-        { value: 'lego', label: 'Lego' },
-        { value: 'puzzle', label: 'Puzzle' },
-        { value: 'action', label: 'Action figures' },
-        { value: 'adult', label: 'Adults' },
-        { value: 'vehicles', label: 'Vehicles' },
-        { value: 'board', label: 'Board games' },
-        { value: 'thinking', label: 'Thinking games' }
-    ]
+    // const options = [
+    //     { value: 'product', label: 'Product' },
+    //     { value: 'bear', label: 'Bears' },
+    //     { value: 'animal', label: 'Animals' },
+    //     { value: 'doll', label: 'Dolls' },
+    //     { value: 'lego', label: 'Lego' },
+    //     { value: 'puzzle', label: 'Puzzle' },
+    //     { value: 'action', label: 'Action figures' },
+    //     { value: 'adult', label: 'Adults' },
+    //     { value: 'vehicles', label: 'Vehicles' },
+    //     { value: 'board', label: 'Board games' },
+    //     { value: 'thinking', label: 'Thinking games' }
+    // ]
 
 
     onSetFilter = useRef(utilService.debounce(onSetFilter))
@@ -37,7 +37,7 @@ export function ProductFilter({ onSetFilter}) {
         onSetFilter.current(filterByToEdit)
     }, [filterByToEdit])
 
-    function handleChange({target}) {
+    function handleChange({ target }) {
         let { value, name: field, type } = target
         value = (type === 'number') ? +value : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
@@ -55,16 +55,19 @@ export function ProductFilter({ onSetFilter}) {
 
 
     return <section className="product-filter ">
-        <form onSubmit={onSubmitFilter}>
+
+        <form className="search-bar" onSubmit={onSubmitFilter}>
             <input type="text"
                 id="name"
                 name="name"
-                placeholder="By Name"
+                placeholder="חפשי מוצר..." 
                 value={filterByToEdit.name}
                 onChange={handleChange}
                 ref={elInputRef}
-            />
+                />
 
+        
+        {/* 
             <select className="filter-stock-select" onChange={handleChange} name="inStock" id="inStock">
                 <option value="">All</option>
                 <option value="true">In stock</option>
@@ -84,8 +87,8 @@ export function ProductFilter({ onSetFilter}) {
                 <option value="price">Price</option>
                 <option value="name">Name</option>
                 <option value="created">Import date</option>
-            </select>
-        </form>
+            </select> */}
+    </form>
 
-    </section>
+    </section >
 }
