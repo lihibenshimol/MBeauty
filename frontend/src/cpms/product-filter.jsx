@@ -57,18 +57,27 @@ export function ProductFilter({ onSetFilter }) {
     return <section className="product-filter ">
 
         <form className="search-bar" onSubmit={onSubmitFilter}>
+
+
+            <select className="sort-select" onChange={handleChange} name="sortBy" id="sortBy">
+                <option >הצג לפי</option>
+                <option value="price-low">מחיר: מהנמוך לגבוה</option>
+                <option value="price-high">מחיר: מהגבוה לנמוך</option>
+                {/* <option value="created">Import date</option> */}
+            </select>
+            
             <input type="text"
                 id="name"
                 name="name"
-                placeholder="חפשי מוצר..." 
+                placeholder="חפשי מוצר..."
                 value={filterByToEdit.name}
                 onChange={handleChange}
                 ref={elInputRef}
-                />
+            />
 
-        
-        {/* 
-            <select className="filter-stock-select" onChange={handleChange} name="inStock" id="inStock">
+
+
+            {/* <select className="filter-stock-select" onChange={handleChange} name="inStock" id="inStock">
                 <option value="">All</option>
                 <option value="true">In stock</option>
                 <option value="false">Out of stock</option>
@@ -81,14 +90,11 @@ export function ProductFilter({ onSetFilter }) {
                 isMulti
                 options={options}
                 onChange={handleMultiChange}
-            />
+            /> */}
 
-            <select className="sort-select" onChange={handleChange} name="sortBy" id="sortBy">
-                <option value="price">Price</option>
-                <option value="name">Name</option>
-                <option value="created">Import date</option>
-            </select> */}
-    </form>
+
+
+        </form>
 
     </section >
 }
