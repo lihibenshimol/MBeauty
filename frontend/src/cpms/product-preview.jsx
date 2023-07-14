@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { BsBasket } from "react-icons/bs"
 
-export function ProductPreview({ product, onRemoveProduct }) {
+export function ProductPreview({ product, onRemoveProduct, onAddToCart }) {
 
     const isAdmin = useSelector((storeState) => storeState.adminModule.admin)
 
@@ -20,7 +20,7 @@ export function ProductPreview({ product, onRemoveProduct }) {
                 </div>
                 <p className="price">{product.price}₪</p>
 
-                <button className="add-to-bag-btn">
+                <button className="add-to-bag-btn" onClick={() => { onAddToCart(product) }}>
                     <span><BsBasket /></span> הוסף לסל
                 </button>
 
