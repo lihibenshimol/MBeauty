@@ -7,20 +7,26 @@ export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const TOGGLE_CART_SHOWN = 'TOGGLE_CART_SHOWN'
 
 
 const initialState = {
     products: [],
     isLoading: false,
     lastRemovedProduct: null,
+    cart: []
 }
 
 
 export function productReducer(state = initialState, action) {
     let products
     let lastRemovedProduct
+    var shoppingCart
+    var isCartShown = false
+    var newState = state
 
     switch (action.type) {
+
         case SET_PRODUCTS:
             return { ...state, products: action.products }
 
@@ -45,15 +51,15 @@ export function productReducer(state = initialState, action) {
             products = state.products.map(product => product._id === action.product._id ? action.product : product)
             return { ...state, products }
 
-        // // Cart
-        // case TOGGLE_CART_SHOWN:
-        //     return { ...state, isCartShown: !state.isCartShown }
-        // case ADD_TO_CART:
-        //     shoppingCart = [...state.shoppingCart, action.car]
-        //     return { ...state, shoppingCart }
-        // case REMOVE_FROM_CART:
-        //     shoppingCart = state.shoppingCart.filter(c => c._id !== action.carId)
-        //     return { ...state, shoppingCart }
+        // Cart
+        case TOGGLE_CART_SHOWN:
+            return { ...state, isCartShown: !state.isCartShown }
+        case ADD_TO_CART:
+            shoppingCart = [...state.shoppingCart, action.cart]
+            return { ...state, shoppingCart }
+        case REMOVE_FROM_CART:
+            shoppingCart = state.shoppingCart.filter(p => p._id !== action.productId)
+            return { ...state, shoppingCart }
         // case CLEAR_CART:
         //     return { ...state, shoppingCart: [] }
 

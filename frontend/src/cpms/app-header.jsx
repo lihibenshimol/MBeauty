@@ -2,12 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { SET_ADMIN } from "../store/admin-reducer";
 import { logout } from "../store/admin-action";
+import {BsBasket} from 'react-icons/bs'
+import { TOGGLE_CART_SHOWN } from "../store/product-reducer";
+import { toggleCartShown } from "../store/product-action";
 
 
 
 export function AppHeader() {
 
     const admin = useSelector((storeState => storeState.adminModule.admin))
+    const shoppingCart = useSelector((storeState => storeState.productModule.shoppingCart))
+    const isCartShown = useSelector((storeState => storeState.productModule.isCartShown))
     const dispatch = useDispatch()
 
     function onLogout() {
@@ -31,6 +36,10 @@ export function AppHeader() {
 
             </div>
             }
+
+            <div onClick={toggleCartShown}>
+             <BsBasket /> הסל שלי
+            </div>
 
             <nav>
                 <NavLink to="/">דף הבית</NavLink> |
