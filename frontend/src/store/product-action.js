@@ -1,5 +1,5 @@
 import { productService } from "../services/product-service.js"
-import { SET_PRODUCTS, SET_IS_LOADING, REMOVE_PRODUCT, UNDO_REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT, REMOVE_FROM_CART, ADD_TO_CART } from './product-reducer.js'
+import { SET_PRODUCTS, SET_IS_LOADING, REMOVE_PRODUCT, UNDO_REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT, REMOVE_FROM_CART, ADD_TO_CART, TOGGLE_CART_SHOWN } from './product-reducer.js'
 import { store } from './store.js'
 
 export function loadProducts(filterBy) {
@@ -40,16 +40,23 @@ export function saveProduct(product) {
         })
 }
 
-export function addToCart(car) {
+export function addToCart(product) {
     store.dispatch({
         type: ADD_TO_CART,
-        car
+        product
     })
 }
 
-export function removeFromCart(carId) {
+export function toggleCartShown() {
+    console.log('shown');
+    store.dispatch({
+        type: TOGGLE_CART_SHOWN
+    })
+}
+
+export function removeFromCart(productId) {
     store.dispatch({
         type: REMOVE_FROM_CART,
-        carId
+        productId
     })
 }

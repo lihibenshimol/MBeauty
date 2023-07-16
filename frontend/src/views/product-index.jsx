@@ -43,7 +43,7 @@ export function ProductIndex() {
         onLoadProducts(filterBy)
     }
 
-    function onAddToCart(product){
+    function onAddToCart(product) {
         console.log(`Adding ${product.name.hebrew} to Cart`)
         addToCart(product)
         showSuccessMsg('Added to Cart')
@@ -53,12 +53,11 @@ export function ProductIndex() {
     return (
 
 
-            <section className="product-index">
-                    <ProductFilter onSetFilter={onSetFilter}/>
+        <section className="product-index">
+            <ProductFilter onSetFilter={onSetFilter} />
 
-                    <ProductList products={products} onRemoveProduct={onRemoveProduct} onAddToCart={onAddToCart} />
-                    {/* <SideBar onSetFilter={onSetFilter} /> */}
+            <ProductList products={products} onRemoveProduct={onRemoveProduct} onAddToCart={onAddToCart} />
 
-            </section>
-            )
+        </section>
+    )
 }
