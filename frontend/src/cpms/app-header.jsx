@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { SET_ADMIN } from "../store/admin-reducer";
 import { logout } from "../store/admin-action";
-import {BsBasket} from 'react-icons/bs'
+import { BsBasket } from 'react-icons/bs'
 import { TOGGLE_CART_SHOWN } from "../store/product-reducer";
 import { toggleCartShown } from "../store/product-action";
 
@@ -25,20 +25,24 @@ export function AppHeader() {
 
     return (
         <section className="app-header main-layout full">
-            {admin && <div>
+            <div className="left-side-nav">
 
-                <div>
-                    {admin.fullname} ,היי
+                {admin && <div>
+
+                    <div>
+                        {admin.fullname} ,היי
+                    </div>
+                    <div onClick={logout} className="logout-btn"
+                    >התנתק
+                    </div>
+
                 </div>
-                <div onClick={logout} className="logout-btn"
-                >התנתק
+                }
+
+                <div onClick={toggleCartShown}>
+                    <BsBasket /> הסל שלי
                 </div>
 
-            </div>
-            }
-
-            <div onClick={toggleCartShown}>
-             <BsBasket /> הסל שלי
             </div>
 
             <nav>
@@ -47,7 +51,7 @@ export function AppHeader() {
                 {/* <NavLink to="/dashboard">Dashboard</NavLink>| */}
                 <NavLink to="/store">חנות</NavLink> |
                 <NavLink to="/contact">יצירת קשר</NavLink>
-                {admin &&  <NavLink to="/admin-only">| עמוד מנהל</NavLink>}
+                {admin && <NavLink to="/admin-only">| עמוד מנהל</NavLink>}
             </nav>
 
         </section>
