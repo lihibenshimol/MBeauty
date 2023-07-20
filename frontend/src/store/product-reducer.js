@@ -14,16 +14,17 @@ const initialState = {
     products: [],
     isLoading: false,
     lastRemovedProduct: null,
-    cart: []
+    shoppingCart: {},
+    // shoppingCart: [],
+    isCartShown: false,
 }
 
 
 export function productReducer(state = initialState, action) {
     let products
     let lastRemovedProduct
-    var shoppingCart
-    var isCartShown = false
-    var newState = state
+    let shoppingCart
+
 
     switch (action.type) {
 
@@ -54,12 +55,60 @@ export function productReducer(state = initialState, action) {
         // Cart
         case TOGGLE_CART_SHOWN:
             return { ...state, isCartShown: !state.isCartShown }
+        // case ADD_TO_CART:
+        //     shoppingCart = [...state.shoppingCart, action.product]
+        //     return { ...state, shoppingCart }
         case ADD_TO_CART:
-            shoppingCart = [...state.shoppingCart, action.cart]
-            return { ...state, shoppingCart }
+            const { product } = action;
+            const productId = product._id; // Assuming 'id' is the unique identifier of the product
+
+            // If the product is already in the cart, increase the quantity
+            if (state.shoppingCart[productId]) {
+                const updatedCart = {
+                    ...state.shoppingCart,
+                    [productId]: state.shoppingCart[productId] + 1,
+                };
+                return { ...state, shoppingCart: updatedCart };
+            }
+
+            // If the product is not in the cart, add it with a quantity of 1
+            const newCart = {
+                ...state.shoppingCart,
+                [productId]: 1,
+            };
+            return { ...state, shoppingCart: newCart };
+
+
+
+
+
+
+        // case REMOVE_FROM_CART:
+        //     shoppingCart = state.shoppingCart.filter(p => p._id !== action.productId)
+        //     return { ...state, shoppingCart }
+
         case REMOVE_FROM_CART:
-            shoppingCart = state.shoppingCart.filter(p => p._id !== action.productId)
-            return { ...state, shoppingCart }
+
+            // Check if the product is in the cart
+            if (state.shoppingCart.hasOwnProperty(action.productId)) {
+                // If the quantity is greater than 1, decrease the quantity
+                if (state.shoppingCart[action.productId] > 1) {
+                    const updatedCart = {
+                        ...state.shoppingCart,
+                        [action.productId]: state.shoppingCart[action.productId] - 1,
+                    };
+                    return { ...state, shoppingCart: updatedCart };
+                }
+
+                // If the quantity is 1 or less, remove the product from the cart
+                const { [action.productId]: _, ...updatedCart } = state.shoppingCart;
+                return { ...state, shoppingCart: updatedCart };
+            }
+
+            // If the product is not in the cart, return the state as it is
+            return state;
+
+
         // case CLEAR_CART:
         //     return { ...state, shoppingCart: [] }
 

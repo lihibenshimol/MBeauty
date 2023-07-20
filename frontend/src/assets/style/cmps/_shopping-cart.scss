@@ -1,0 +1,53 @@
+.shopping-cart {
+    width: 40vw;
+    min-height: 80vh;
+    background-color: #d8d0c0;
+    position: absolute;
+    left: 100px;
+    border-radius: 8px;
+    padding: 15px 30px;
+    overflow-y: scroll;
+
+
+    @include for-mobile-layout {
+        width: 180px;
+        min-height: 200px;
+        left: 30px;
+
+    }
+
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: transparent;
+    }
+
+
+    ul {
+        list-style: none;
+        line-height: 30px;
+        margin: 0;
+        padding: 0;
+
+        li {
+            height: 100px;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: space-between;
+
+
+            .remove-prod-btn {
+                position: absolute;
+            }
+
+            .cart-prod-name {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+            }
+        }
+    }
+
+}

@@ -5,14 +5,16 @@ import { logout } from "../store/admin-action";
 import { BsBasket } from 'react-icons/bs'
 import { TOGGLE_CART_SHOWN } from "../store/product-reducer";
 import { toggleCartShown } from "../store/product-action";
+import { ShoppingCart } from "./shopping-cart";
 
 
 
 export function AppHeader() {
 
     const admin = useSelector((storeState => storeState.adminModule.admin))
-    const shoppingCart = useSelector((storeState => storeState.productModule.shoppingCart))
     const isCartShown = useSelector((storeState => storeState.productModule.isCartShown))
+    const cart = useSelector((storeState) => storeState.productModule.shoppingCart)
+
     const dispatch = useDispatch()
 
     function onLogout() {
@@ -39,9 +41,10 @@ export function AppHeader() {
                 </div>
                 }
 
-                <div onClick={toggleCartShown}>
+                <div className="my-cart" onClick={toggleCartShown}>
                     <BsBasket /> הסל שלי
                 </div>
+                {isCartShown && <ShoppingCart cart={cart} dispatch={dispatch}/>}
 
             </div>
 
