@@ -5,7 +5,7 @@ import { productReducer } from './product-reducer.js'
 
 
 // const { createStore, combineReducers } = Redux
-const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
 
 const rootReducer = combineReducers({
     productModule: productReducer,
