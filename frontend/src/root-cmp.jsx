@@ -13,6 +13,7 @@ import { ProductDetails } from './views/product-details';
 import { AppFooter } from './cpms/app-footer.jsx';
 import { ProductEdit } from './views/product-edit.jsx';
 import { Contact } from './views/contact';
+import { Whatsapp } from './cpms/whatsapp';
 
 export function App() {
 
@@ -35,6 +36,7 @@ export function App() {
             </Routes>
           </main>
           {/* <AppFooter /> */}
+          <Whatsapp />
         </section>
       </Router>
     </Provider>

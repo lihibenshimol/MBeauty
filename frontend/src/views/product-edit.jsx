@@ -23,12 +23,12 @@ export function ProductEdit() {
             .then((product) => setProductToEdit(product))
             .catch((err) => {
                 console.log('Had issues in product details', err)
-                navigate('/product')
+                navigate('/store')
             })
     }
 
     function onSaveProduct(ev) {
-        // ev.preventDefault()
+        ev.preventDefault()
         saveProduct(productToEdit)
             .then((product) => {
                 showSuccessMsg('product saved!')
@@ -37,180 +37,97 @@ export function ProductEdit() {
             .catch(err => {
                 console.log('err', err)
                 showErrorMsg('Cannot save product')
-                navigate('/product')
+                navigate('/store')
             })
     }
 
-
-    const EditSchema = Yup.object().shape({
-        name: Yup.string()
-            .min(2, 'Too Short!')
-            .max(20, 'Too Long!')
-            .required('Required')
-    })
-
-
-    function handleChange({ target }) {
-        console.log('productToEdit = ', productToEdit)
-        let { value, checked, type, name: field } = target
-        value = type === 'number' ? +value : value
-        value = type === 'checkbox' ? checked : value
-        setProductToEdit((prevProduct) => ({ ...prevProduct, [field]: value }))
-    }
-    return (
-        <section className="product-edit narrow-layout">
-            <Formik className="formik"
-                initialValues={{
-                    hebrew: productToEdit.name.hebrew,
-                    english: productToEdit.name.english,
-                    price: productToEdit.price,
-                    label: productToEdit.labels,
-                    inStock: productToEdit.inStock
-                }}
-                validationSchema={EditSchema}
-                onSubmit={onSaveProduct}
-                enableReinitialize
-            >
-
-                {({ errors, touched }) => (
-
-                    <Form>
-                        <label htmlFor="hebrew">שם בעברית:  </label>
-                        <Field
-                            type="text"
-                            name="hebrew"
-                            id="hebrew"
-                            placeholder="Enter name..."
-                            value={productToEdit.name.hebrew}
-                            onChange={handleChange}
-                        />
-                        {errors.hebrew && touched.hebrew ? (
-                            <div>{errors.hebrew}</div>
-                        ) : null}
-
-
-                        <label htmlFor="english">שם באנגלית:  </label>
-                        <Field
-                            type="text"
-                            name="english"
-                            id="english"
-                            placeholder="Enter name..."
-                            value={productToEdit.name.english}
-                            onChange={handleChange}
-                        />
-                        {errors.english && touched.english ? (
-                            <div>{errors.english}</div>
-                        ) : null}
-
-                        <label htmlFor="labels">תגיות: </label>
-                        <Field
-                            type="text"
-                            name="labels"
-                            id="labels"
-                            placeholder="Enter comma seperated labels..."
-                            value={productToEdit.labels}
-                            onChange={handleChange}
-                        />
-                        {errors.label && touched.label ? (
-                            <div>{errors.label}</div>
-                        ) : null}
-
-                        <label htmlFor="price">מחיר: </label>
-                        <Field
-                            type="number"
-                            name="price"
-                            id="price"
-                            placeholder="Enter price"
-                            value={productToEdit.price}
-                            onChange={handleChange}
-                        />
-                        {errors.price && touched.price ? (
-                            <div>{errors.price}</div>
-                        ) : null}
-
-                        <label htmlFor="stock">In stock </label>
-                        <Field
-                            type="checkbox"
-                            name="inStock"
-                            id="stock"
-                            onChange={handleChange}
-                        />
-                        {errors.inStock && touched.inStock ? (
-                            <div>{errors.inStock}</div>
-                        ) : null}
-
-                        <div className="actions">
-                            <button type="submit" >{productToEdit._id ? 'Save' : 'Add'}</button>
-                            <Link to="/product">Cancel</Link>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
-        </section >
-    )
-
-    // function onSaveProduct(ev) {
-    //     ev.preventDefault()
-    //     saveProduct(productToEdit)
-    //         .then((product) => {
-    //             console.log('product saved', product);
-    //             showSuccessMsg('product saved!')
-    //             navigate('/product')
-    //         })
-    //         .catch(err => {
-    //             console.log('err', err)
-    //             showErrorMsg('Cannot save product')
-    //             navigate('/product')
-    //         })
+    // function handleChange({ target }) {
+    //     console.log('productToEdit = ', productToEdit)
+    //     let { value, checked, type, name: field } = target
+    //     value = type === 'number' ? +value : value
+    //     value = type === 'checkbox' ? checked : value
+    //     setProductToEdit((prevProduct) => ({ ...prevProduct, [field]: value }))
     // }
 
 
-    // return (
-    //     <section className="product-edit">
-    //         <h2>{productToEdit.id ? 'Edit this product' : 'Add a new product'}</h2>
+    function handleChange({ target }) {
+        const { value, checked, type, name: field } = target;
+        const updatedValue = type === 'number' ? +value : type === 'checkbox' ? checked : value;
+
+        setProductToEdit((prevProduct) => {
+            if (field === 'english' || field === 'hebrew') {
+                return {
+                    ...prevProduct,
+                    name: {
+                        ...prevProduct.name,
+                        [field]: updatedValue,
+                    },
+                };
+            }
+
+            return {
+                ...prevProduct,
+                [field]: updatedValue,
+            };
+        });
+    }
 
 
-    //         <form className="flex" onSubmit={onSaveProduct}>
-    //             <label htmlFor="name">Name: </label>
-    //             <input type="text"
-    //                 name="name"
-    //                 id="name"
-    //                 placeholder="Enter name..."
-    //                 value={productToEdit.name}
-    //                 onChange={handleChange}
-    //             />
+    return (
+        <section className="product-edit narrow-layout">
+            {/* <h2>{productToEdit.id ? 'Edit this product' : 'Add a new product'}</h2> */}
 
-    //             <label htmlFor="labels">Labels: </label>
-    //             <input type="text"
-    //                 name="labels"
-    //                 id="labels"
-    //                 placeholder="Enter comma seperated labels..."
-    //                 value={productToEdit.labels}
-    //                 onChange={handleChange}
-    //             />
 
-    //             <label htmlFor="price">Price: </label>
-    //             <input type="number"
-    //                 name="price"
-    //                 id="price"
-    //                 placeholder="Enter price"
-    //                 value={productToEdit.price}
-    //                 onChange={handleChange}
-    //             />
-    //             <label htmlFor="stock">In stock: </label>
-    //             <input
-    //                 type="checkbox"
-    //                 checked={productToEdit.inStock}
-    //                 name="inStock"
-    //                 id="stock"
-    //                 onChange={handleChange}
-    //             />
+            <form className="flex" onSubmit={onSaveProduct}>
+                <label htmlFor="english">שם באנגלית: </label>
+                <input type="text"
+                    name="english"
+                    id="english"
+                    placeholder="Enter name..."
+                    value={productToEdit.name.english}
+                    onChange={handleChange}
+                />
 
-    //             <div>
-    //                 <button>{productToEdit._id ? 'Save' : 'Add'}</button>
-    //                 <Link to="/product">Cancel</Link>
-    //             </div>
-    //         </form>
-    //     </section>
-    // )
+                <label htmlFor="hebrew">שם בעברית: </label>
+                <input type="text"
+                    name="hebrew"
+                    id="hebrew"
+                    placeholder="Enter name..."
+                    value={productToEdit.name.hebrew}
+                    onChange={handleChange}
+                />
+
+                <label htmlFor="labels">קטגוריות: </label>
+                <input type="text"
+                    name="labels"
+                    id="labels"
+                    placeholder="Enter comma seperated labels..."
+                    value={productToEdit.labels}
+                    onChange={handleChange}
+                />
+
+                <label htmlFor="price">מחיר: </label>
+                <input type="number"
+                    name="price"
+                    id="price"
+                    placeholder="Enter price"
+                    value={productToEdit.price}
+                    onChange={handleChange}
+                />
+                <label htmlFor="stock">במלאי: </label>
+                <input
+                    type="checkbox"
+                    checked={productToEdit.inStock}
+                    name="inStock"
+                    id="stock"
+                    onChange={handleChange}
+                />
+
+                <div className="actions">
+                    <Link to={`/product/${productId}`}>ביטול</Link>
+                    <button>{productToEdit._id ? 'שמור' : 'הוסף'}</button>
+                </div>
+            </form>
+        </section>
+    )
 }

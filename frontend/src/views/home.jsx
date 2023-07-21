@@ -39,23 +39,20 @@ export function HomePage() {
             {/* <img className="logo" src={require(`../assets/img/hero/hero1.png`)} /> */}
             <div className='main-hero'>
 
-            <h1 className="title">MBeauty</h1>
-            <div className='actions'>
+            <h1 className="title animate__animated animate__slideInUp">MBeauty</h1>
+            <div className='actions animate__animated animate__slideInUp'>
                 <NavLink className='cta booking' to="/contact"> <h1> תיאום תור </h1></NavLink>
                 <NavLink className='cta shop' to="/store"> <h1>  חנות </h1></NavLink>
             </div>
 
             </div>
 
-            {/* <div className="wave">
-            </div> */}
 
             <div className="info">
 
-                {/* <h1 className="subtitle">Our Treatments </h1> */}
                 <div className='treatments-container'>
 
-                    <div className="treatments">
+                    <div className="treatments animate__animated animate__flipInY">
                         {treatments.map((t, idx) => (
                             <div className='flip-card' key={idx}>
                                 <div className='flip-card-inner'>
