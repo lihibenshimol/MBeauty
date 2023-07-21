@@ -1,33 +1,58 @@
-.toy-details {
-    display: flex;
-    gap: 50px;
-    margin: 80px;
-    word-spacing: 2px;
-}
+.product-details {
+    background-image: url('../../img/store-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 
-.toy-details .a {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
 
-.toy-details .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        .a {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
-.toy-details .links {
-    display: flex;
-    justify-content: space-between;
-}
+        .content {
+            display: flex;
+            direction: rtl;
+            align-items: center;
+        }
 
-.toy-details .in-stock {
-    background-color: rgb(142, 195, 142);
-    text-align: center;
-}
+        .cta-btns {
+            width: 40vw;
+            
+            .add-to-bag-btn {
+                width: 100%;
+                background-color: black;
+                color: white;
+                
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.596);
+                }
+            }
+        }
 
-.toy-details .out-stock {
-    background-color: rgb(206, 73, 73);
-    text-align: center;
+        .links {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .in-stock {
+            background-color: rgb(142, 195, 142);
+            text-align: center;
+        }
+
+        .out-stock {
+            background-color: rgb(206, 73, 73);
+            text-align: center;
+        }
+
+    }
 }

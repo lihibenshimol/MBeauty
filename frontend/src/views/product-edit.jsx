@@ -28,7 +28,7 @@ export function ProductEdit() {
     }
 
     function onSaveProduct(ev) {
-    // ev.preventDefault()
+        // ev.preventDefault()
         saveProduct(productToEdit)
             .then((product) => {
                 showSuccessMsg('product saved!')
@@ -51,16 +51,18 @@ export function ProductEdit() {
 
 
     function handleChange({ target }) {
+        console.log('productToEdit = ', productToEdit)
         let { value, checked, type, name: field } = target
         value = type === 'number' ? +value : value
         value = type === 'checkbox' ? checked : value
         setProductToEdit((prevProduct) => ({ ...prevProduct, [field]: value }))
     }
     return (
-        <section className="product-edit">
+        <section className="product-edit narrow-layout">
             <Formik className="formik"
                 initialValues={{
-                    name: productToEdit.name,
+                    hebrew: productToEdit.name.hebrew,
+                    english: productToEdit.name.english,
                     price: productToEdit.price,
                     label: productToEdit.labels,
                     inStock: productToEdit.inStock
@@ -73,20 +75,34 @@ export function ProductEdit() {
                 {({ errors, touched }) => (
 
                     <Form>
-                        <label htmlFor="name">Name: </label>
+                        <label htmlFor="hebrew">שם בעברית:  </label>
                         <Field
                             type="text"
-                            name="name"
-                            id="name"
+                            name="hebrew"
+                            id="hebrew"
                             placeholder="Enter name..."
-                            value={productToEdit.name}
+                            value={productToEdit.name.hebrew}
                             onChange={handleChange}
                         />
-                        {errors.name && touched.name ? (
-                            <div>{errors.name}</div>
+                        {errors.hebrew && touched.hebrew ? (
+                            <div>{errors.hebrew}</div>
                         ) : null}
 
-                        <label htmlFor="labels">Labels: </label>
+
+                        <label htmlFor="english">שם באנגלית:  </label>
+                        <Field
+                            type="text"
+                            name="english"
+                            id="english"
+                            placeholder="Enter name..."
+                            value={productToEdit.name.english}
+                            onChange={handleChange}
+                        />
+                        {errors.english && touched.english ? (
+                            <div>{errors.english}</div>
+                        ) : null}
+
+                        <label htmlFor="labels">תגיות: </label>
                         <Field
                             type="text"
                             name="labels"
@@ -99,7 +115,7 @@ export function ProductEdit() {
                             <div>{errors.label}</div>
                         ) : null}
 
-                        <label htmlFor="price">Price: </label>
+                        <label htmlFor="price">מחיר: </label>
                         <Field
                             type="number"
                             name="price"

@@ -2,10 +2,14 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { productService } from "../services/product-service.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
+import { useSelector } from "react-redux"
+import { BsBasket } from "react-icons/bs"
+import { addToCart } from "../store/product-action.js"
 
 
 
 export function ProductDetails() {
+    const admin = useSelector((storeState => storeState.adminModule.admin))
     const [product, setProduct] = useState(null)
     const { productId } = useParams()
     const navigate = useNavigate()
@@ -35,26 +39,39 @@ export function ProductDetails() {
 
 
     return (product &&
-        <section className="product-details">
-            <div className="a">
-                <img src={product.img} style={{ width: 300 }} />
-                <span className="links">
-                    <Link to={`/product`}>Go back</Link>
-                    <Link to={`/product/edit/${product._id}`}>Edit</Link>
-                </span>
-            </div>
-            <div className="content">
-                <span>
-                    <h1>{product.name}</h1>
-                    <p>Product Price: ${product.price}</p>
-                    <p>Imported at: {getImportDate(product.createdAt)}</p>
-                    <p>Categories: {product.labels.join(', ')}</p>
-                </span>
-                <span>
-                    <p className={product.inStock ? 'in-stock' : 'out-stock'}>{product.inStock ? 'Available' : 'Out Of Stock'}</p>
-                </span>
-            </div>
+        <section className="product-details narrow-layout">
 
+            <div className="info">
+
+                <div className="a">
+                    <img src={product.img} style={{ width: 300 }} />
+                    <span className="links">
+                        <Link to={`/store`}>  חזרה לחנות </Link>
+                        {admin && <Link to={`/product/edit/${product._id}`}>  | עריכת פרטי מוצר </Link>}
+                    </span>
+                </div>
+                <div className="content">
+                    <span>
+                        <h1>{product.name.english}</h1>
+                        <h2>{product.name.hebrew}</h2>
+                        <p>{product.desc}</p>
+                        <p>מחיר: {product.price}₪</p>
+                        <p>קטגוריות: {product.labels.join(', ')}</p>
+                    </span>
+                    <span>
+                        <p className={product.inStock ? 'in-stock' : 'out-stock'}>{product.inStock ? '' : 'לא במלאי'}</p>
+                    </span>
+                </div>
+
+                <div className="cta-btns">
+
+                    <button className="add-to-bag-btn" onClick={() => { addToCart(product) }}>
+                        <span><BsBasket /></span> הוסף לסל
+                    </button>
+
+                </div>
+
+            </div>
 
         </section>
     )
