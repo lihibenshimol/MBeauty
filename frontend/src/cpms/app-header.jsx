@@ -45,7 +45,7 @@ export function AppHeader() {
 
     return (
         <section className="app-header main-layout full">
-            <div className="left-side-nav">
+            <div className="left-side-nav animate__animated animate__slideInLeft">
 
                 {admin && <div>
 
@@ -67,7 +67,7 @@ export function AppHeader() {
                 {isCartShown && <ShoppingCart cart={cart} dispatch={dispatch} getCartTotal={getCartTotal} />}
 
             </div>
-            <div className={`menu ${mobileMenuIsOpen ? 'open' : ''}`}>
+            <div className={` animate__animated animate__slideInRight menu ${mobileMenuIsOpen ? 'open' : ''}`}>
 
                 <article className="menu-icon" onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}><AiOutlineMenu /></article>
 
