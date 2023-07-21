@@ -70,6 +70,7 @@ app.get('/api/product/:productId', (req, res) => {
     const { productId } = req.params
     productService.get(productId)
         .then((product) => {
+            console.log('product = ', product)
             res.send(product)
         })
         .catch(err => {

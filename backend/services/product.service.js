@@ -41,13 +41,17 @@ function query(filterBy) {
         })
     }
 
-    // if (filterBy.sortBy === 'name') {
-    //     filteredProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name))
-    // }
+    if (filterBy.sortBy === 'name') {
+        filteredProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name))
+    }
 
-    // if (filterBy.sortBy === 'price') {
-    //     filteredProducts = filteredProducts.sort((a, b) => a.price - b.price)
-    // }
+    if (filterBy.sortBy === 'price-low') {
+        filteredProducts = filteredProducts.sort((a, b) => a.price - b.price)
+    }
+
+    if (filterBy.sortBy === 'price-high') {
+        filteredProducts = filteredProducts.sort((a, b) => b.price - a.price)
+    }
 
     // if (filterBy.sortBy === 'created') {
     //     filteredProducts = filteredProducts.sort((a, b) => a.createdAt - b.createdAt)
