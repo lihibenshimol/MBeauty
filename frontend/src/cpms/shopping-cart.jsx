@@ -9,19 +9,19 @@ export function ShoppingCart({ cart, dispatch }) {
 
     const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const productPromises = Object.keys(cart).map((productId) => productService.get(productId));
-                const resolvedProducts = await Promise.all(productPromises);
-                setProducts(resolvedProducts);
-            } catch (error) {
-                console.error('Error fetching products: ', error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchProducts = async () => {
+    //         try {
+    //             const productPromises = Object.keys(cart).map((productId) => productService.get(productId));
+    //             const resolvedProducts = await Promise.all(productPromises);
+    //             setProducts(resolvedProducts);
+    //         } catch (error) {
+    //             console.error('Error fetching products: ', error);
+    //         }
+    //     };
 
-        fetchProducts();
-    }, [cart]);
+    //     fetchProducts();
+    // }, [cart]);
 
 
     function removeFromCart(productId) {
@@ -29,39 +29,54 @@ export function ShoppingCart({ cart, dispatch }) {
         dispatch({ type: REMOVE_FROM_CART, productId })
     }
 
+    function getCartTotal() {
+        return cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+    }
+
+
     return (
         <>
             <div className="shopping-cart">
-                {products.length === 0 ? (
+                {cart.length === 0 ? (
                     <p>הסל ריק</p>
                 ) : (
-                    <>
+                    <div className="cart-products">
+
                         <h1 className="cart-title">הסל שלי</h1>
                         <ul>
-                            {products.map((product, index) => (
+                            {cart.map((item, index) => (
                                 <li key={index}>
-
-                                    <button className="remove-prod-btn" onClick={() => removeFromCart(product._id)}>x</button>
+                                    <button className="remove-prod-btn" onClick={() => removeFromCart(item.product._id)}>
+                                        x
+                                    </button>
                                     <div className="cart-prod-quantity">
-                                        {cart[product._id] > 1 ? `X${cart[product._id]}` : ''}
+                                        {item.quantity > 1 ? `X${item.quantity}` : ''}
                                     </div>
-
+                                    <div className="cart-prod-info">
+                                        <h4>{item.product.name.english}</h4>
+                                        <h2>{item.product.name.hebrew}</h2>
+                                        <h4>{item.product.price}₪</h4>
+                                    </div>
                                     <div className="cart-prod-img">
-                                        <img src={product.img} alt="" />
+                                        <img src={item.product.img} alt="" />
                                     </div>
-                                    <h6>{product.price}₪</h6>
-
-                                    <div className="cart-prod-name">
-                                        <h4>{product.name.english} </h4>
-                                        <h2>{product.name.hebrew}</h2>
-                                    </div>
-
-                                </li>
-                            ))}
+                                </li>))}
                         </ul>
                         <button className="close" onClick={toggleCartShown}>X</button>
-                    </>
+                    </div>
+
                 )}
+
+                <div className="chackout">
+
+
+                סכום ביניים:  {getCartTotal()}₪ 
+
+                    <button className="show-cart-btn">מעבר לסל הקניות</button>
+                    <button className="checkout-btn">תשלום</button>
+
+
+                </div>
             </div>
 
 

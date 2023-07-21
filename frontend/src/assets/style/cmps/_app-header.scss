@@ -12,12 +12,75 @@
     font-size: 1.1rem;
     margin-top: 15px;
 
-      
+
     @include for-mobile-layout {
-        font-size: 0.8rem;
         right: auto;
+        // padding: 0;
     }
-    
+
+    .menu-icon {
+        display: none;
+    }
+
+    .menu {
+
+        nav {
+
+            a {
+                margin: 0px 20px 0px 20px;
+
+                &.active {
+                    color: #fdf4e6;
+                    text-shadow: 1px 0px 1px rgba(136, 115, 94, 0.85);
+                }
+            }
+
+        }
+    }
+
+
+    @media (max-width: 560px) {
+
+        .menu-icon {
+            display: block;
+            position: relative;
+        }
+
+        .menu {
+            font-size: 24px;
+
+            nav {
+                display: none;
+            }
+
+            &.open {
+
+                nav {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    right: 20px;
+                    top: 25px;
+                    direction: rtl;
+                    background-color: #00000080;
+                    color: whitesmoke;
+                    width: 100vw;
+                    gap: 20px;
+                    padding: 15px 0px;
+
+                    a {
+                        border-bottom: .2px solid rgba(245, 245, 245, 0.549);
+                    }
+
+                }
+
+            }
+
+        }
+
+
+    }
+
 
     .logout-btn {
         display: flex;
@@ -30,17 +93,25 @@
 
     .my-cart {
         cursor: pointer;
+        position: relative;
+        font-size: 24px;
+
+        .prod-in-cart {
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            font-size: 15px;
+            padding: 3px 10px;
+            top: -10px;
+            left: 18px;
+
+            &.false {
+                display: none;
+            }
+        }
     }
 }
 
-.app-header nav a {
-    margin: 0px 20px 0px 20px;
-}
-
-.app-header nav a.active {
-    color: #fdf4e6;
-    text-shadow: 1px 0px 1px rgba(136, 115, 94, 0.85);
-}
 
 .app-header .logo {
     width: 130px;
