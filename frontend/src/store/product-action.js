@@ -50,7 +50,6 @@ export function addToCart(product) {
 }
 
 export function toggleCartShown() {
-    console.log('shown');
     store.dispatch({
         type: TOGGLE_CART_SHOWN
     })
