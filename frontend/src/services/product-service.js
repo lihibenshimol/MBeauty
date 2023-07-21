@@ -46,12 +46,15 @@ function getDefaultFilter() {
 
 function getEmptyProduct() {
     return {
-        name: '',
+        name: {
+            english:"",
+            hebrew:""
+        },
         price: 0,
         labels: [],
         inStock: true,
-        img: "https://m.media-amazon.com/images/I/81SNM0JefBS._AC_UL320_.jpg"
     }
+
 }
 
 function _createProducts() {
