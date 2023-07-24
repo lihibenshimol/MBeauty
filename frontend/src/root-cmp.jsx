@@ -14,6 +14,7 @@ import { AppFooter } from './cpms/app-footer.jsx';
 import { ProductEdit } from './views/product-edit.jsx';
 import { Contact } from './views/contact';
 import { Whatsapp } from './cpms/whatsapp';
+import { AdminPage } from './views/admin-page';
 
 export function App() {
 
@@ -25,7 +26,8 @@ export function App() {
           <AppHeader />
           <main>
             <Routes>
-              <Route element={<Login />} path="/admin-only" />
+              <Route element={<Login />} path="/admin-only-signup" />
+              <Route element={<AdminPage />} path="/admin-page" />
               <Route element={<HomePage />} path="/" />
               <Route element={<AboutUs />} path="/about" />
               <Route element={<Contact />} path="/contact" />

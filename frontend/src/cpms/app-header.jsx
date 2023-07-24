@@ -47,24 +47,21 @@ export function AppHeader() {
         <section className="app-header main-layout full">
             <div className="left-side-nav animate__animated animate__slideInLeft">
 
-                {admin && <div>
+                {admin && <div className="admin-name">
 
-                    <div>
-                        {admin.fullname} ,היי
-                    </div>
                     <div onClick={logout} className="logout-btn"
-                    >התנתק
+                    >Logout
                     </div>
+                    {admin.fullname} ,היי
 
                 </div>
                 }
 
                 <div className="my-cart" onClick={toggleCartShown}>
                     <BsBasket />
-                    {/* <div className={`prod-in-cart ${Object.keys(cart).length > 0 ? '' : 'false'}`}> <div>{Object.keys(cart).length}</div></div> */}
                     <div className={`prod-in-cart ${cart.length > 0 ? '' : 'false'}`}> {cartBadge()}</div>
                 </div>
-                {isCartShown && <ShoppingCart cart={cart} dispatch={dispatch} getCartTotal={getCartTotal} />}
+                {<ShoppingCart cart={cart} dispatch={dispatch} getCartTotal={getCartTotal} isCartShown={isCartShown} />}
 
             </div>
             <div className={` animate__animated animate__slideInRight menu ${mobileMenuIsOpen ? 'open' : ''}`}>
@@ -77,7 +74,7 @@ export function AppHeader() {
                     {/* <NavLink to="/dashboard">Dashboard</NavLink>| */}
                     <NavLink to="/store">חנות</NavLink>
                     <NavLink to="/contact">יצירת קשר</NavLink>
-                    {admin && <NavLink to="/admin-only"> עמוד מנהל</NavLink>}
+                    {admin && <NavLink to="/admin-page"> עמוד מנהל</NavLink>}
                 </nav>
 
 
