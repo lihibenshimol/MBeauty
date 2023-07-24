@@ -34,6 +34,7 @@ export function Login() {
   const { adminname, password, fullname } = credentials
   return (
     <div className='login-page'>
+      <h1>כניסת מנהלים בלבד</h1>
       <form className='login-form' onSubmit={onSubmit}>
         <input
           type='text'

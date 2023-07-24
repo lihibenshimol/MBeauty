@@ -1,23 +1,24 @@
 .shopping-cart {
     width: 35vw;
-    min-height: 88vh;
+    min-height: 95vh;
     background-color: #000000d5;
     color: whitesmoke;
-    position: absolute;
-    left: 30px;
+    position: relative;
     border-radius: 8px;
     padding: 15px 30px 30px 30px;
     border: .3px solid #6058513b;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    z-index: 3;
 
 
     @include for-mobile-layout {
-        width: 65vw;
+        position: absolute;
+        width: 70vw;
         min-height: 80vh;
-        left: 5px;
+        top: 50px;
+        // left: 5px;
 
     }
 
@@ -29,9 +30,9 @@
     }
 
     .cart-products {
-            max-height: 60vh;
-            overflow-y: scroll;
-            font-size: 0.8rem;
+        max-height: 60vh;
+        overflow-y: scroll;
+        font-size: 0.8rem;
 
 
 
@@ -134,5 +135,29 @@
             }
         }
     }
+}
 
+.black-bg {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: -123px;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: -15px;
+    transform: translateX(-100%);
+    transition: .4s;
+    
+    
+    @include for-mobile-layout {
+        // width: 100vw;
+        min-height: 80vh;
+        left: -20px;
+        
+    }
+    
+    &.open {
+        // display: block;
+        transform: translateX(0);
+    }
 }
