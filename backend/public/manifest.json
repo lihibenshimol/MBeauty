@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MBeauty - סלון יופי",
+  "name": "קליניקה לטיפולי פנים, הסרת שיער, איפור מקצועי ועוד.",
   "icons": [
     {
       "src": "favicon.ico",
