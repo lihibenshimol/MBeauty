@@ -4,15 +4,26 @@ const productService = require('./services/product.service.js')
 const authService = require('./services/auth.service.js')
 const cors = require('cors')
 const app = express()
+const path = require('path')
 
 // App configuration
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
-const corsOptions = {
-    origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
-    credentials: true
+// const corsOptions = {
+//     origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
+//     credentials: true
+// }
+if (process.env.NODE_ENV === 'production') {
+} else {
+    app.use(express.static(path.resolve(__dirname, 'public')))
+    const corsOptions = {
+        origin: ['http://127.0.0.1:3000', 'http://localhost:3000'],
+        credentials: true
+    }
+    app.use(cors(corsOptions))
 }
-app.use(cors(corsOptions))
+
+// app.use(cors(corsOptions))
 
 
 app.use(cookieParser())
@@ -124,7 +135,7 @@ app.get('/api/admin/:adminId', (req, res) => {
 
 
 app.post('/api/admin/login', (req, res) => {
-  
+
     const { adminname, password } = req.body
 
     authService.login(adminname, password)
@@ -158,9 +169,18 @@ app.post('/api/admin/logout', (req, res) => {
     res.send('Logged out')
 })
 
-// Listen will always be the last line in our server!
-const port = 3031
-app.listen(port, () => console.log(`Server listening on port ${port}!`))
+// // Listen will always be the last line in our server!
+// const port = 3031
+// app.listen(port, () => console.log(`Server listening on port ${port}!`))
 
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+
+const port = process.env.PORT || 3031;
+app.listen(port, () => {
+    console.log(`App listening on port ${port}!`)
+});
 
 

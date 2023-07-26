@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a861498f.css",
+    "main.js": "/static/js/main.020d08ca.js",
+    "static/media/hero3.jpg": "/static/media/hero3.8b952f0838d64a134a31.jpg",
+    "static/media/hero2.jpg": "/static/media/hero2.30d2715c8ab502150c48.jpg",
+    "static/media/hero.jpg": "/static/media/hero.ddb17bae370f0240b923.jpg",
+    "static/media/facial2.jpg": "/static/media/facial2.09ba3247218930b1c6c2.jpg",
+    "static/media/manicure2.jpg": "/static/media/manicure2.0a82e0d24adee76b5fb6.jpg",
+    "static/media/hair-removal.jpg": "/static/media/hair-removal.2dba8f6de8b25147d571.jpg",
+    "static/media/hero1.png": "/static/media/hero1.d02e80f5c2c6a2758577.png",
+    "static/media/makeup.jpg": "/static/media/makeup.6466d17df2c81259c34b.jpg",
+    "static/media/hero1.jpg": "/static/media/hero1.13016a498750a58b5e50.jpg",
+    "static/media/about-bg2.png": "/static/media/about-bg2.d1e6e97e0a6e69726ba0.png",
+    "static/media/facial.jpg": "/static/media/facial.c5af11ad89a73371eb98.jpg",
+    "static/media/text-info2.png": "/static/media/text-info2.6d918e2197cb3bc1e125.png",
+    "static/media/store-bg2.png": "/static/media/store-bg2.82dbab1ad7443eb6bd04.png",
+    "static/media/store-bg.png": "/static/media/store-bg.a3d8adc0819cf9f7e666.png",
+    "static/media/manicure.jpg": "/static/media/manicure.e44a62522b196b67405a.jpg",
+    "static/media/Assistant-Light.ttf": "/static/media/Assistant-Light.5da702a69396e5fdceb8.ttf",
+    "static/media/Assistant-Regular.ttf": "/static/media/Assistant-Regular.e0bb8a20557f3925f263.ttf",
+    "static/media/makeup-removal.jpg": "/static/media/makeup-removal.e7aeff4f636bfbf35568.jpg",
+    "index.html": "/index.html",
+    "main.a861498f.css.map": "/static/css/main.a861498f.css.map",
+    "main.020d08ca.js.map": "/static/js/main.020d08ca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a861498f.css",
+    "static/js/main.020d08ca.js"
+  ]
+}
