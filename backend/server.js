@@ -9,22 +9,21 @@ const path = require('path')
 // App configuration
 app.use(express.static('public'))
 
-const corsOptions = {
-    origin: ['https://127.0.0.1:8080', 'https://localhost:8080', 'https://127.0.0.1:3000', 'https://localhost:3000', 'https://localhost:3031'],
-    credentials: true
-}
-app.use(cors(corsOptions))
-
-// if (process.env.NODE_ENV === 'production') {
-// } else {
-//     app.use(express.static(path.resolve(__dirname, 'public')))
-//     const corsOptions = {
-//         origin: ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://localhost:3031'],
-//         credentials: true
-//     }
-//     app.use(cors(corsOptions))
+// const corsOptions = {
+//     origin: ['https://127.0.0.1:8080', 'https://localhost:8080', 'https://127.0.0.1:3000', 'https://localhost:3000', 'https://localhost:3031'],
+//     credentials: true
 // }
+// app.use(cors(corsOptions))
 
+if (process.env.NODE_ENV === 'production') {
+} else {
+    app.use(express.static(path.resolve(__dirname, 'public')))
+    const corsOptions = {
+        origin: ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://localhost:3031'],
+        credentials: true
+    }
+    app.use(cors(corsOptions))
+}
 
 
 app.use(cookieParser())
@@ -151,19 +150,6 @@ app.post('/api/admin/login', (req, res) => {
         })
 })
 
-// app.post('/api/admin/signup', (req, res) => {
-//     const { fullname, adminname, password, score } = req.body
-//     authService.signup({ fullname, adminname, password, score })
-//         .then((admin) => {
-//             const loginToken = authService.getLoginToken(admin)
-//             res.cookie('loginToken', loginToken)
-//             res.send(admin)
-//         })
-//         .catch(err => {
-//             console.log('Error:', err)
-//             res.status(400).send('Cannot signup')
-//         })
-// })
 
 app.post('/api/admin/logout', (req, res) => {
     res.clearCookie('loginToken')
@@ -179,7 +165,7 @@ app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
-const port = process.env.PORT || 3031;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`)
 });
