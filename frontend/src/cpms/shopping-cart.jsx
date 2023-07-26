@@ -5,17 +5,13 @@ import { productService } from "../services/product-service"
 import { useEffect, useState } from "react";
 
 
-export function ShoppingCart({ cart, dispatch, isCartShown }) {
+export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
 
     function removeFromCart(productId, ev) {
         console.log(`Todo: remove: ${productId} from cart`)
         ev.stopPropagation()
         dispatch({ type: REMOVE_FROM_CART, productId })
-    }
-
-    function getCartTotal() {
-        return cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
     }
 
     function handleNavButtonClick(event) {
@@ -29,8 +25,9 @@ export function ShoppingCart({ cart, dispatch, isCartShown }) {
             <div onClick={(event) => toggleCartShown(event)} className={`black-bg ${isCartShown ? 'open' : ''}`}>
 
                 <div className='shopping-cart'>
+                    <button className="close" onClick={toggleCartShown}>X</button>
                     {cart.length === 0 ? (
-                        <p>הסל ריק</p>
+                        <div className="cart-empty"> .לא נמצאו מוצרים בסל הקניות</div>
                     ) : (
                         <div className="cart-products">
 
@@ -54,7 +51,6 @@ export function ShoppingCart({ cart, dispatch, isCartShown }) {
                                         </div>
                                     </li>))}
                             </ul>
-                            <button className="close" onClick={toggleCartShown}>X</button>
                         </div>
 
                     )}
@@ -62,7 +58,7 @@ export function ShoppingCart({ cart, dispatch, isCartShown }) {
                     <div className="chackout">
 
 
-                        סכום ביניים:  {getCartTotal()}₪
+                        סכום ביניים:  {getCartTotal()}
 
                         <button onClick={handleNavButtonClick} className="show-cart-btn">מעבר לסל הקניות</button>
                         <button onClick={handleNavButtonClick} className="checkout-btn">תשלום</button>

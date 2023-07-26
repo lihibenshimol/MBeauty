@@ -34,12 +34,11 @@ export function AppHeader() {
     }
 
     function getCartTotal() {
-        return cart.reduce((acc, product) => acc + product.price, 0)
+        const total = cart.reduce((accumulator, item) => accumulator + item.product.price * item.quantity, 0);
+        return total.toLocaleString('he-IL', { style: 'currency', currency: 'ILS' });
     }
 
-
     function cartBadge() {
-        // Calculate the total count of items in the cart
         return cart.reduce((acc, item) => acc + item.quantity, 0);
     }
 
@@ -49,8 +48,8 @@ export function AppHeader() {
 
                 {admin && <div className="admin-name">
 
-                    <div onClick={logout} className="logout-btn"
-                    >Logout
+                    <div onClick={logout} className="logout-btn">
+                        Logout
                     </div>
                     {admin.fullname} ,היי
 
@@ -58,7 +57,12 @@ export function AppHeader() {
                 }
 
                 <div className="my-cart" onClick={toggleCartShown}>
-                    <BsBasket />
+                    <span className="basket-icon">
+                        <BsBasket />
+                    </span>
+                    <span className="basket-total">
+                        {getCartTotal()}
+                    </span>
                     <div className={`prod-in-cart ${cart.length > 0 ? '' : 'false'}`}> {cartBadge()}</div>
                 </div>
                 {<ShoppingCart cart={cart} dispatch={dispatch} getCartTotal={getCartTotal} isCartShown={isCartShown} />}
@@ -68,9 +72,10 @@ export function AppHeader() {
 
                 <article className="menu-icon" onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}><AiOutlineMenu /></article>
 
-                <nav>
+                <nav onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}>
                     <NavLink to="/">דף הבית</NavLink>
                     <NavLink to="/about">עלינו</NavLink>
+                    <NavLink to="/treatment">הטיפולים בקליניקה</NavLink>
                     {/* <NavLink to="/dashboard">Dashboard</NavLink>| */}
                     <NavLink to="/store">חנות</NavLink>
                     <NavLink to="/contact">יצירת קשר</NavLink>

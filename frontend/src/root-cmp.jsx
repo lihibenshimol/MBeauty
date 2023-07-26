@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import { AppHeader } from './cpms/app-header.jsx'
-import { AboutUs } from './views/about-us.jsx'
+// import { AboutUs } from './views/about-us.jsx'
 import { HomePage } from './views/home.jsx'
 import { Login } from './cpms/login-signup.jsx'
 import { ProductIndex } from './views/product-index.jsx'
@@ -15,6 +15,7 @@ import { ProductEdit } from './views/product-edit.jsx';
 import { Contact } from './views/contact';
 import { Whatsapp } from './cpms/whatsapp';
 import { AdminPage } from './views/admin-page';
+import { TreatmentsAbout } from './views/treatments-about';
 
 export function App() {
 
@@ -29,7 +30,8 @@ export function App() {
               <Route element={<Login />} path="/admin-only-signup" />
               <Route element={<AdminPage />} path="/admin-page" />
               <Route element={<HomePage />} path="/" />
-              <Route element={<AboutUs />} path="/about" />
+              {/* <Route element={<AboutUs />} path="/about" /> */}
+              <Route element={<TreatmentsAbout />} path="/treatment"/>
               <Route element={<Contact />} path="/contact" />
               <Route element={<ProductIndex />} path="/store" />
               <Route element={<ProductDetails />} path="/product/:productId" />

@@ -1,16 +1,17 @@
 .shopping-cart {
-    width: 35vw;
+    width: 30vw;
     min-height: 95vh;
     background-color: #000000d5;
     color: whitesmoke;
     position: relative;
-    border-radius: 8px;
+    border-radius: 3px;
     padding: 15px 30px 30px 30px;
     border: .3px solid #6058513b;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     z-index: 3;
+    
 
 
     @include for-mobile-layout {
@@ -27,6 +28,22 @@
         top: 5px;
         right: 5px;
         background: transparent;
+        color: whitesmoke;
+        font-size: 12px;
+    }
+
+    .cart-empty {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-top: 70px;
+        font-size: 1.5rem;
+    }
+
+    .cart-title {
+        direction: rtl;
+        font-size: 1.2rem;
+        margin: 15px 0 ;
     }
 
     .cart-products {
@@ -141,7 +158,7 @@
     height: 100vh;
     width: 100vw;
     position: fixed;
-    left: -123px;
+    left: -165px;
     top: 0;
     background-color: rgba(0, 0, 0, 0);
     margin-top: -15px;
