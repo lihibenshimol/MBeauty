@@ -17,7 +17,36 @@
         display: flex;
         gap: 20px;
         align-items: center;
-        justify-content: c;
+
+        .my-cart {
+            cursor: pointer;
+            position: relative;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgb(49, 49, 49);
+
+            .basket-total {
+                font-size: 18px;
+            }
+
+            .prod-in-cart {
+                border-radius: 50%;
+                background-color: black;
+                color: whitesmoke;
+                position: absolute;
+                font-size: 12px;
+                padding: 2px 6px;
+                top: -10px;
+                left: 18px;
+
+                &.false {
+                    display: none;
+                }
+            }
+        }
+
 
         .admin-name {
             display: flex;
@@ -88,7 +117,7 @@
                     right: -20px;
                     top: 30px;
                     direction: rtl;
-                    background-color: #00000080;
+                    background-color: #000000b9;
                     color: whitesmoke;
                     width: 100vw;
                     gap: 20px;
@@ -107,26 +136,6 @@
 
     }
 
-    .my-cart {
-        cursor: pointer;
-        position: relative;
-        font-size: 24px;
-
-        .prod-in-cart {
-            border-radius: 50%;
-            background-color: black;
-            color: whitesmoke;
-            position: absolute;
-            font-size: 15px;
-            padding: 3px 10px;
-            top: -10px;
-            left: 18px;
-
-            &.false {
-                display: none;
-            }
-        }
-    }
 }
 
 

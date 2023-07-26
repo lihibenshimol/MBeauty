@@ -39,7 +39,7 @@ export function ProductDetails() {
 
 
     return (product &&
-        <section className="product-details narrow-layout">
+        <section className="product-details ">
 
             <div className="info">
 
