@@ -159,27 +159,13 @@ app.post('/api/admin/logout', (req, res) => {
 })
 
 // // Listen will always be the last line in our server!
-// const port = 3031
-// app.listen(port, () => console.log(`Server listening on port ${port}!`))
-
-
-// app.get('/**', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// })
-
-// const port = process.env.PORT || 3000;
-// app.listen(port, () => {
-//     console.log(`App listening on port ${port}!`)
-// });
 
 app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
-// const logger = require('./services/logger.service')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`App listening on port ${port}!`)
+});
 
-http.listen(port, () => {
-    console.log(`App listening on port ${port}!`);
-    // logger.info('Server is running on port: ' + port)
-})
