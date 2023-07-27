@@ -24,25 +24,23 @@
             text-shadow: 1px 1px 6px #aa7d49c2;
             color: #fdf4e6;
 
-            @include for-mobile-layout {
-                font-size: 5.5rem;
-            }
         }
 
         .actions {
             display: flex;
             justify-content: space-between;
-            width: 350px;
+            // width: 350px;
             height: 60px;
+            gap: 30px;
 
             .booking,
             .cta {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 15px;
-                min-width: 120px;
+                gap: 30px;
+                min-width: 180px;
                 transition: 0.5s;
                 text-shadow: 1px 1px 2px rgb(62 53 43 / 60%);
                 color: #fdf4e6;
@@ -50,6 +48,10 @@
                 border: 1px solid #fdf4e6;
                 background-color: rgb(187 175 156 / 29%);
                 padding: 20px;
+
+                // @include for-narrow-layout {
+                //     font-size: 2rem;
+                // }
 
 
                 &:hover {
@@ -101,7 +103,7 @@
                 max-width: 70vw;
                 justify-content: center;
                 
-                @include for-mobile-layout {
+                @include for-normal-layout {
                     max-width: 90vw;
                 }
 
