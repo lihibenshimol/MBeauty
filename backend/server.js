@@ -5,6 +5,8 @@ const authService = require('./services/auth.service.js')
 const cors = require('cors')
 const app = express()
 const path = require('path')
+const http = require('http').createServer(app)
+
 
 // App configuration
 app.use(express.static('public'))
@@ -161,13 +163,23 @@ app.post('/api/admin/logout', (req, res) => {
 // app.listen(port, () => console.log(`Server listening on port ${port}!`))
 
 
+// app.get('/**', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// })
+
+// const port = process.env.PORT || 3000;
+// app.listen(port, () => {
+//     console.log(`App listening on port ${port}!`)
+// });
+
 app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`App listening on port ${port}!`)
-});
+// const logger = require('./services/logger.service')
+const port = process.env.PORT || 3000
 
-
+http.listen(port, () => {
+    console.log(`App listening on port ${port}!`);
+    // logger.info('Server is running on port: ' + port)
+})
