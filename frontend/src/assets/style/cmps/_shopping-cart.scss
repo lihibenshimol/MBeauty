@@ -1,26 +1,23 @@
 .shopping-cart {
+    position: absolute;
+    left: 60px;
     width: 30vw;
     min-height: 95vh;
     background-color: #000000d5;
     color: whitesmoke;
-    position: relative;
     border-radius: 3px;
     padding: 15px 30px 30px 30px;
     border: .3px solid #6058513b;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 3;
-    
-
+    z-index: 999;
 
     @include for-mobile-layout {
-        position: absolute;
         width: 70vw;
         min-height: 80vh;
         top: 50px;
-        // left: 5px;
-
+        left: auto;
     }
 
     .close {
@@ -38,20 +35,24 @@
         justify-content: end;
         margin-top: 70px;
         font-size: 1.5rem;
+
+
+        @include for-mobile-layout {
+            font-size: 1rem;
+        }
+
     }
 
     .cart-title {
         direction: rtl;
         font-size: 1.2rem;
-        margin: 15px 0 ;
+        margin: 15px 0;
     }
 
     .cart-products {
         max-height: 60vh;
         overflow-y: scroll;
         font-size: 0.8rem;
-
-
 
         ul {
             list-style: none;
@@ -127,17 +128,15 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
+        font-size: 18px;
 
         button {
             width: 100%;
             padding: 20px 0;
             border-radius: 6px;
-
-
         }
 
         .show-cart-btn {
-
             &:hover {
                 background-color: rgba(237, 234, 231, 0.615);
             }
@@ -164,17 +163,16 @@
     margin-top: -15px;
     transform: translateX(-100%);
     transition: .4s;
-    
-    
+
+
     @include for-mobile-layout {
         // width: 100vw;
         min-height: 80vh;
         left: -20px;
-        
+
     }
-    
+
     &.open {
-        // display: block;
         transform: translateX(0);
     }
 }
