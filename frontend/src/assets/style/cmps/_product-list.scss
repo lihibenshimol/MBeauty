@@ -15,8 +15,7 @@
 .product-list .product {
 
     @include for-mobile-layout {
-        width: 150px;
-        
+        width: 150px; 
     }
 
 

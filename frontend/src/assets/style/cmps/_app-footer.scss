@@ -12,9 +12,16 @@
     align-items: center;
     justify-content: space-around;
     clear: both;
-    // position: relative;
-    // // margin-top: 200px;
 
+
+    @include for-mobile-layout {
+       flex-direction: column;
+       height: 400px;
+       bottom: auto;
+       gap: 30px;
+    }
+
+    
 
     .opening-details {
         display: flex;
@@ -22,10 +29,8 @@
         justify-content: flex-end;
         width: 300px;
         gap: 20px;
-        // margin-inline-start: 100px;
 
         .opening-hours {
-          
             
             .day-row {
                 display: flex;
@@ -42,6 +47,11 @@
         flex-direction: column;
         justify-content: space-around;
         height: 80%;
+
+
+        @include for-mobile-layout {
+           align-items: center;
+        }
     }
 
     .social-media {
@@ -49,6 +59,12 @@
         flex-direction: column;
         justify-content: space-around;
         height: 80%;
+
+
+        @include for-mobile-layout {
+           flex-direction: row;
+           gap: 10px;
+        }
 
         .icon {
             font-size: 36px;

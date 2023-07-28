@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { adminService } from '../services/admin-service.js'
 import { login, signup } from '../store/admin-action.js'
+import { UserMsg } from './user-msg.jsx'
 
 export function Login() {
   const [credentials, setCredentials] = useState(adminService.getEmptyCredentials())
@@ -66,14 +67,10 @@ export function Login() {
           />
         )}
 
-        <button>{isSignupState ? 'Signup' : 'Login'}</button>
+        <button>Login</button>
       </form>
 
-      {/* <div className='btns'>
-        <a href='#' onClick={onToggleSignupState}>
-          {isSignupState ? 'Already a member? Login' : 'New user? Signup here'}
-        </a>
-      </div> */}
+      <UserMsg />
     </div>
   )
 }

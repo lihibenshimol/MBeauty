@@ -35,8 +35,10 @@ export function AppFooter() {
             </div>
 
             <div className="social-media">
-                <span className="icon"> <BsFacebook /></span>
-                <span className="icon"> <AiFillInstagram /></span>
+
+                <a href="https://www.facebook.com/profile.php?id=100079356437664" target="_blank" className="icon"> <BsFacebook /></a>
+                <a href="https://www.instagram.com/mbeauty.il/" target="_blank" className="icon"> <AiFillInstagram /></a>
+
 
             </div>
 

@@ -5,11 +5,11 @@
     justify-content: space-between;
     width: 90vw;
     position: absolute;
-    right: 0;
+    right: 20px;
     top: 15px;
-    padding: 0px 60px;
-    font-size: 2rem;
-    background-color: red;
+    font-size: 1.5rem;
+    z-index: 999;
+
 
     .prod-in-cart {
         border-radius: 50%;
@@ -26,8 +26,47 @@
         }
     }
 
+    .left-side-nav {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        font-size: 18px;
+
+        .my-cart {
+            cursor: pointer;
+            position: relative;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: rgb(49, 49, 49);
+
+            .basket-total {
+                font-size: 18px;
+            }
+        }
+
+        .admin-name {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(40, 40, 40);
+            color: whitesmoke;
+            padding: 4px;
+            cursor: pointer;
+            border-bottom: .1px solid rgb(46, 46, 46);
+        }
+    }
+
     .menu {
         // background-color: aqua;
+        z-index: 1;
 
         .menu-icon {
             display: block;
@@ -43,12 +82,12 @@
                 display: flex;
                 flex-direction: column;
                 position: absolute;
-                right: -60px;
+                right: -15px;
                 top: 40px;
                 direction: rtl;
                 background-color: #000000b9;
                 color: whitesmoke;
-                width: 100vw;
+                width: 90vw;
                 gap: 20px;
                 padding: 15px;
 
@@ -64,9 +103,9 @@
 }
 
 /* Media query for larger screens */
-@media (min-width: 1400px) {
+@media (min-width: 1240px) {
+
     .app-header {
-        background-color: blue;
         font-size: 1.3rem;
 
         .menu {
@@ -75,19 +114,21 @@
                 display: none;
 
             }
-                nav {
 
-                    display: block;
-                    a {
-                        margin: 0px 20px 0px 20px;
+            nav {
 
-                        &.active {
-                            color: #fdf4e6;
-                            text-shadow: 1px 0px 1px rgba(136, 115, 94, 0.85);
-                        }
+                display: block;
+
+                a {
+                    margin: 0px 20px 0px 20px;
+
+                    &.active {
+                        color: #fdf4e6;
+                        text-shadow: 1px 0px 1px rgba(136, 115, 94, 0.85);
                     }
                 }
-            
+            }
+
         }
 
         .left-side-nav {

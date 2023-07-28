@@ -18,18 +18,25 @@
         height: 90vh;
         width: 100vw;
 
+        @include for-mobile-layout {
+            height: 70vh;
+        }
+
         .title {
             font-size: 12rem;
             font-family: lora;
             text-shadow: 1px 1px 6px #aa7d49c2;
             color: #fdf4e6;
 
+              @include for-mobile-layout {
+                    font-size: 5rem;
+                }
+
         }
 
         .actions {
             display: flex;
             justify-content: space-between;
-            // width: 350px;
             height: 60px;
             gap: 30px;
 
@@ -49,10 +56,10 @@
                 background-color: rgb(187 175 156 / 29%);
                 padding: 20px;
 
-                // @include for-narrow-layout {
-                //     font-size: 2rem;
-                // }
-
+                @include for-mobile-layout {
+                   min-width:120px;
+                   font-size: 1.7rem;
+                }
 
                 &:hover {
                     font-size: 1.7rem;
@@ -94,7 +101,6 @@
             align-items: center;
             // padding: 20px;
 
-          
             
             .treatments {
                 display: flex;
@@ -103,7 +109,7 @@
                 max-width: 70vw;
                 justify-content: center;
                 
-                @include for-normal-layout {
+                @include for-mobile-layout {
                     max-width: 90vw;
                 }
 
@@ -223,7 +229,7 @@
         ul {
             list-style: inside;
             line-height: 52px;
-            z-index: 2;
+            // z-index: 2;
 
             @include for-mobile-layout {
                 line-height: 30px;
