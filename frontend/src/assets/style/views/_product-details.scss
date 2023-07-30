@@ -12,6 +12,10 @@
         align-items: center;
         gap: 20px;
 
+        img {
+            max-height: 400px;
+        }
+
         .a {
             display: flex;
             flex-direction: column;

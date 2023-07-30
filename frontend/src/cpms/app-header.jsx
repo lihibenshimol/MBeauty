@@ -8,7 +8,7 @@ import { toggleCartShown } from "../store/product-action";
 import { ShoppingCart } from "./shopping-cart";
 import { useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai"
-
+import { useMediaQuery } from '@react-hook/media-query';
 
 
 export function AppHeader() {
@@ -16,7 +16,8 @@ export function AppHeader() {
     const admin = useSelector((storeState => storeState.adminModule.admin))
     const isCartShown = useSelector((storeState => storeState.productModule.isCartShown))
     const cart = useSelector((storeState) => storeState.productModule.shoppingCart)
-    const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+    const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)
+    const isMobile = useMediaQuery('(max-width: 1100px)')
 
     const dispatch = useDispatch()
 
@@ -72,7 +73,9 @@ export function AppHeader() {
 
                 <article className="menu-icon" onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}><AiOutlineMenu /></article>
 
-                <nav onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}>
+                <nav onClick={() => (isMobile ? setMobileMenuIsOpen(!mobileMenuIsOpen) : null)}>
+                {/* <nav onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}> */}
+                    {/* <nav> */}
                     <NavLink to="/">דף הבית</NavLink>
                     <NavLink to="/about">עלינו</NavLink>
                     <NavLink to="/treatment">הטיפולים בקליניקה</NavLink>

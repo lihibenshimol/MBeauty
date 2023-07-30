@@ -46,7 +46,7 @@ export function TreatmentsAbout() {
 
                 <div className='treatments-container animate__animated animate__slideInDown'>
                     {treatments.map((t, idx) => (
-                        <div className='treatment'>
+                        <div key={idx} className='treatment'>
                             <div className="info">
                                 <h2>{t.name}</h2>
                                 <p>{t.longDesc}</p>
