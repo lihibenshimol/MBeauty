@@ -16,6 +16,7 @@ import { Contact } from './views/contact';
 import { Whatsapp } from './cpms/whatsapp';
 import { AdminPage } from './views/admin-page';
 import { TreatmentsAbout } from './views/treatments-about';
+import { OrderSum } from './views/order-sum';
 
 export function App() {
 
@@ -33,6 +34,7 @@ export function App() {
               {/* <Route element={<AboutUs />} path="/about" /> */}
               <Route element={<TreatmentsAbout />} path="/treatment"/>
               <Route element={<Contact />} path="/contact" />
+              <Route element={<OrderSum />} path="/order-sum" />
               <Route element={<ProductIndex />} path="/store" />
               <Route element={<ProductDetails />} path="/product/:productId" />
               <Route element={<ProductEdit />} path="/product/edit" />

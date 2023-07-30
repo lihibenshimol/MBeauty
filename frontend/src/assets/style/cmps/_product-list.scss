@@ -5,6 +5,7 @@
     gap: 35px;
     justify-content: center;
     margin: 0 auto;
+    max-width: 75vw;
 
     @include for-mobile-layout {
         padding-top: 50px;

@@ -3,10 +3,12 @@ import { removeFromCart, toggleCartShown } from "../store/product-action";
 import { REMOVE_FROM_CART } from "../store/product-reducer";
 import { productService } from "../services/product-service"
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 
 export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
+    const Navigate = useNavigate()
 
     function removeFromCart(productId, ev) {
         console.log(`Todo: remove: ${productId} from cart`)
@@ -14,10 +16,9 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
         dispatch({ type: REMOVE_FROM_CART, productId })
     }
 
-    function handleNavButtonClick(event) {
+    function handleNavButtonClick(event, cmp) {
         event.stopPropagation();
-
-
+        Navigate(cmp)
     }
 
     return (
@@ -60,8 +61,8 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
                         סכום ביניים:  {getCartTotal()}
 
-                        <button onClick={handleNavButtonClick} className="show-cart-btn">מעבר לסל הקניות</button>
-                        <button onClick={handleNavButtonClick} className="checkout-btn">תשלום</button>
+                        <button onClick={(event) => handleNavButtonClick(event, 'order-sum')} className="show-cart-btn">מעבר לסל הקניות</button>
+                        <button onClick={(event) => handleNavButtonClick(event, 'payment')} className="checkout-btn">תשלום</button>
 
 
                     </div>
