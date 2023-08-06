@@ -27,6 +27,7 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
     function handleNavButtonClick(event, cmp) {
         event.stopPropagation();
+        toggleCartShown()
         Navigate(cmp)
     }
 
@@ -66,8 +67,6 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
                     )}
 
                     <div className="chackout">
-
-
                         סכום ביניים:  {getCartTotal()}
 
                         <button onClick={(event) => handleNavButtonClick(event, 'order-sum')} className="show-cart-btn">מעבר לסל הקניות</button>
