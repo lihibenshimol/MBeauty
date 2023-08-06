@@ -9,22 +9,6 @@ import { utilService } from "../services/util.service.js"
 export function ProductFilter({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(productService.getDefaultFilter())
 
-    const animatedComponents = makeAnimated();
-    // const options = [
-    //     { value: 'product', label: 'Product' },
-    //     { value: 'bear', label: 'Bears' },
-    //     { value: 'animal', label: 'Animals' },
-    //     { value: 'doll', label: 'Dolls' },
-    //     { value: 'lego', label: 'Lego' },
-    //     { value: 'puzzle', label: 'Puzzle' },
-    //     { value: 'action', label: 'Action figures' },
-    //     { value: 'adult', label: 'Adults' },
-    //     { value: 'vehicles', label: 'Vehicles' },
-    //     { value: 'board', label: 'Board games' },
-    //     { value: 'thinking', label: 'Thinking games' }
-    // ]
-
-
     onSetFilter = useRef(utilService.debounce(onSetFilter))
 
     const elInputRef = useRef(null)
@@ -63,9 +47,8 @@ export function ProductFilter({ onSetFilter }) {
                 <option >הצג לפי</option>
                 <option value="price-low">מחיר: מהנמוך לגבוה</option>
                 <option value="price-high">מחיר: מהגבוה לנמוך</option>
-                {/* <option value="created">Import date</option> */}
             </select>
-            
+
             <input type="text"
                 id="name"
                 name="name"
@@ -74,25 +57,6 @@ export function ProductFilter({ onSetFilter }) {
                 onChange={handleChange}
                 ref={elInputRef}
             />
-
-
-
-            {/* <select className="filter-stock-select" onChange={handleChange} name="inStock" id="inStock">
-                <option value="">All</option>
-                <option value="true">In stock</option>
-                <option value="false">Out of stock</option>
-            </select>
-
-
-            <Select
-                closeMenuOnSelect={false}
-                components={animatedComponents}
-                isMulti
-                options={options}
-                onChange={handleMultiChange}
-            /> */}
-
-
 
         </form>
 

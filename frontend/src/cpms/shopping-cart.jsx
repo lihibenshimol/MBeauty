@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { removeFromCart, toggleCartShown } from "../store/product-action";
+import { removeFromCart, toggleCartShown, loadSavedProducts } from "../store/product-action";
 import { REMOVE_FROM_CART } from "../store/product-reducer";
 import { productService } from "../services/product-service"
 import { useEffect, useState } from "react";
@@ -9,6 +9,15 @@ import { useNavigate } from 'react-router-dom'
 export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
     const Navigate = useNavigate()
+
+    useEffect(() => {
+        const savedProducts = JSON.parse(sessionStorage.getItem('shoppingBag')) || [];
+
+        if (savedProducts.length > 0) {
+            dispatch(loadSavedProducts(savedProducts));
+        }
+    }, []);
+
 
     function removeFromCart(productId, ev) {
         console.log(`Todo: remove: ${productId} from cart`)

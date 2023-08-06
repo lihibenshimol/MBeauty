@@ -67,14 +67,13 @@ export function AppHeader() {
                     <div className={`prod-in-cart ${cart.length > 0 ? '' : 'false'}`}> {cartBadge()}</div>
                 </div>
                 {<ShoppingCart cart={cart} dispatch={dispatch} getCartTotal={getCartTotal} isCartShown={isCartShown} />}
-
             </div>
             <div className={` animate__animated animate__slideInRight menu ${mobileMenuIsOpen ? 'open' : ''}`}>
 
                 <article className="menu-icon" onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}><AiOutlineMenu /></article>
 
                 <nav onClick={() => (isMobile ? setMobileMenuIsOpen(!mobileMenuIsOpen) : null)}>
-                {/* <nav onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}> */}
+                    {/* <nav onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}> */}
                     {/* <nav> */}
                     <NavLink to="/">דף הבית</NavLink>
                     <NavLink to="/about">עלינו</NavLink>

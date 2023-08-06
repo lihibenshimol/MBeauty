@@ -32,19 +32,21 @@
         align-items: center;
         font-size: 18px;
 
-        .my-cart {
-            cursor: pointer;
-            position: relative;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: rgb(49, 49, 49);
 
-            .basket-total {
-                font-size: 18px;
+            .my-cart {
+                cursor: pointer;
+                position: relative;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                color: rgb(49, 49, 49);
+
+                .basket-total {
+                    font-size: 18px;
+                }
             }
-        }
+    
 
         .admin-name {
             display: flex;

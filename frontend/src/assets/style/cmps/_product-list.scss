@@ -1,5 +1,5 @@
 .product-list {
-    padding-top: 100px;
+    padding-top: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 35px;
@@ -8,70 +8,71 @@
     max-width: 75vw;
 
     @include for-mobile-layout {
-        padding-top: 50px;
-    }
- 
-}
-
-.product-list .product {
-
-    @include for-mobile-layout {
-        width: 150px; 
+        padding-top: 20px;
     }
 
 
-    position: relative;
-    width: 230px;
-    // max-height: 300px;
-    padding: 10px;
-    break-inside: avoid;
-    margin-bottom: 10px;
-    transition: .4s;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-left: 0.1px solid #c5c2c2b3;
-    border-right: 0.1px solid #c5c2c2b3;
-    background-color: #fdfdfd6b;
+    .product {
+
+        @include for-mobile-layout {
+            width: 150px;
+        }
 
 
-    .price {
-        direction: rtl;
-    }
-
-    .img-container {
+        position: relative;
+        width: 230px;
+        // max-height: 300px;
+        padding: 10px;
+        break-inside: avoid;
+        margin-bottom: 10px;
+        transition: .4s;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        border-left: 0.1px solid #c5c2c2b3;
+        border-right: 0.1px solid #c5c2c2b3;
+        background-color: #fdfdfd6b;
 
-        img {
-            width: 200px;
-            height: 200px;
 
-            @include for-mobile-layout {
-                width: 100px;
-                height: 100px;
+        .price {
+            direction: rtl;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 200px;
+                height: 200px;
+
+                @include for-mobile-layout {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+
+        .add-to-bag-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #d8d0c0f0;
+            color: rgb(63, 63, 63);
+            transition: .3s;
+            border-radius: 4px;
+
+            &:hover {
+                color: black;
             }
         }
     }
 
-    .add-to-bag-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background-color: #d8d0c0f0;
-        color: rgb(63, 63, 63);
-        transition: .3s;
-        border-radius: 4px;
-
-        &:hover {
-            color: black;
-        }
+    &:hover .btn {
+        opacity: 1;
     }
-}
 
-.product-list .product:hover .btn {
-    opacity: 1;
 }
 
 .product-btns .btn {
@@ -80,4 +81,18 @@
     right: 5px;
     background-color: transparent;
     opacity: 0;
+}
+
+
+.pagination {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px;
+
+    button {
+        background-color: transparent;
+        transition: .1s;
+    }
 }
