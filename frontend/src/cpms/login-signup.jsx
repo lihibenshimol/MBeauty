@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-import { adminService } from '../services/admin-service.js'
-import { login, signup } from '../store/admin-action.js'
+import { userService } from '../services/user-service.js'
+import { login, signup } from '../store/user-action.js'
 import { UserMsg } from './user-msg.jsx'
 
 export function Login() {
-  const [credentials, setCredentials] = useState(adminService.getEmptyCredentials())
+  const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
   const [isSignupState, setIsSignupState] = useState(false)
   const navigate = useNavigate()
 
@@ -20,9 +20,8 @@ export function Login() {
   async function onSubmit(ev) {
     ev.preventDefault()
     try {
-    console.log('credentials = ', credentials)
-      const admin = await login(credentials)
-      showSuccessMsg(`Welcome ${admin.fullname}`)
+      const user = await login(credentials)
+      showSuccessMsg(`Welcome ${user.fullname}`)
       navigate('/store')
     } catch (err) {
       showErrorMsg('Oops try again')
@@ -32,15 +31,15 @@ export function Login() {
 
 
 
-  const { adminname, password, fullname } = credentials
+  const { username, password, fullname } = credentials
   return (
     <div className='login-page'>
       <h1>כניסת מנהלים בלבד</h1>
       <form className='login-form' onSubmit={onSubmit}>
         <input
           type='text'
-          name='adminname'
-          value={adminname}
+          name='username'
+          value={username}
           placeholder='Username'
           onChange={handleCredentialsChange}
           required

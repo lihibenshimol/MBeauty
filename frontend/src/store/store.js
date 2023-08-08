@@ -1,6 +1,6 @@
 import { combineReducers, legacy_createStore as createStore } from 'redux'
 
-import { adminReducer } from './admin-reducer.js'
+import { userReducer } from './user-reducer.js'
 import { productReducer } from './product-reducer.js'
 
 
@@ -11,7 +11,7 @@ const middleware = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? window.__REDU
 
 const rootReducer = combineReducers({
     productModule: productReducer,
-    adminModule: adminReducer
+    userModule: userReducer
 })
 
 export const store = createStore(rootReducer, middleware)

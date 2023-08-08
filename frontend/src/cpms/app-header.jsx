@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { SET_ADMIN } from "../store/admin-reducer";
-import { logout } from "../store/admin-action";
+import { SET_ADMIN } from "../store/user-reducer";
+import { logout } from "../store/user-action";
 import { BsBasket } from 'react-icons/bs'
 import { TOGGLE_CART_SHOWN } from "../store/product-reducer";
 import { toggleCartShown } from "../store/product-action";
@@ -13,7 +13,7 @@ import { useMediaQuery } from '@react-hook/media-query';
 
 export function AppHeader() {
 
-    const admin = useSelector((storeState => storeState.adminModule.admin))
+    const user = useSelector((storeState => storeState.userModule.user))
     const isCartShown = useSelector((storeState => storeState.productModule.isCartShown))
     const cart = useSelector((storeState) => storeState.productModule.shoppingCart)
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)
@@ -47,12 +47,12 @@ export function AppHeader() {
         <section className="app-header main-layout full">
             <div className="left-side-nav animate__animated animate__slideInLeft">
 
-                {admin && <div className="admin-name">
+                {user && <div className="user-name">
 
                     <div onClick={logout} className="logout-btn">
                         Logout
                     </div>
-                    {admin.fullname} ,היי
+                    {user.fullname} ,היי
 
                 </div>
                 }
@@ -81,7 +81,7 @@ export function AppHeader() {
                     {/* <NavLink to="/dashboard">Dashboard</NavLink>| */}
                     <NavLink to="/store">חנות</NavLink>
                     <NavLink to="/contact">יצירת קשר</NavLink>
-                    {admin && <NavLink to="/admin-page"> עמוד מנהל</NavLink>}
+                    {user && <NavLink to="/user-page"> עמוד מנהל</NavLink>}
                 </nav>
 
 

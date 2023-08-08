@@ -4,7 +4,7 @@ import { BsBasket } from "react-icons/bs"
 
 export function ProductPreview({ product, onRemoveProduct, onAddToCart }) {
 
-    const isAdmin = useSelector((storeState) => storeState.adminModule.admin)
+    const isAdmin = useSelector((storeState) => storeState.userModule.user)
 
 
     return (

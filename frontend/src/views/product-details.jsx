@@ -9,7 +9,7 @@ import { addToCart } from "../store/product-action.js"
 
 
 export function ProductDetails() {
-    const admin = useSelector((storeState => storeState.adminModule.admin))
+    const user = useSelector((storeState => storeState.userModule.user))
     const [product, setProduct] = useState(null)
     const { productId } = useParams()
     const navigate = useNavigate()
@@ -20,12 +20,13 @@ export function ProductDetails() {
     }, [productId])
 
     function loadProduct() {
+        console.log('user = ', user)
         productService.get(productId)
             .then((product) => setProduct(product))
             .catch((err) => {
                 console.log('Had issues in product details', err)
                 showErrorMsg('Cannot load product')
-                navigate('/product')
+                navigate('/store')
             })
     }
 
@@ -47,7 +48,7 @@ export function ProductDetails() {
                     <img src={product.img} style={{ width: 300 }} />
                     <span className="links">
                         <Link to={`/store`}>  חזרה לחנות </Link>
-                        {admin && <Link to={`/product/edit/${product._id}`}>  | עריכת פרטי מוצר </Link>}
+                        {user && <Link to={`/product/edit/${product._id}`}>  | עריכת פרטי מוצר </Link>}
                     </span>
                 </div>
                 <div className="content">
