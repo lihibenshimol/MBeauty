@@ -1,5 +1,9 @@
 import { productService } from "../services/product-service.js"
+<<<<<<< HEAD
 import { SET_PRODUCTS, SET_IS_LOADING, REMOVE_PRODUCT, UNDO_REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT, REMOVE_FROM_CART, ADD_TO_CART, TOGGLE_CART_SHOWN, LOAD_SAVED_PRODUCTS } from './product-reducer.js'
+=======
+import { SET_PRODUCTS, SET_IS_LOADING, REMOVE_PRODUCT, UNDO_REMOVE_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT, REMOVE_FROM_CART, ADD_TO_CART, TOGGLE_CART_SHOWN } from './product-reducer.js'
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 import { store } from './store.js'
 
 export function loadProducts(filterBy) {
@@ -60,8 +64,11 @@ export function removeFromCart(productId) {
         type: REMOVE_FROM_CART,
         productId
     })
+<<<<<<< HEAD
 }
 
 export function loadSavedProducts(products) {
     return { type: LOAD_SAVED_PRODUCTS, products };
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 }

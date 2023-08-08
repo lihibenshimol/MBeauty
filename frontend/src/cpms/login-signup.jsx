@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
+<<<<<<< HEAD
 import { userService } from '../services/user-service.js'
 import { login, signup } from '../store/user-action.js'
+=======
+import { adminService } from '../services/admin-service.js'
+import { login, signup } from '../store/admin-action.js'
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 import { UserMsg } from './user-msg.jsx'
 
 export function Login() {

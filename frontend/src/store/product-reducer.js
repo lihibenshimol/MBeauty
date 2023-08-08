@@ -8,7 +8,10 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const TOGGLE_CART_SHOWN = 'TOGGLE_CART_SHOWN'
+<<<<<<< HEAD
 export const LOAD_SAVED_PRODUCTS = 'LOAD_SAVED_PRODUCTS'
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 
 
 const initialState = {
@@ -16,6 +19,10 @@ const initialState = {
     isLoading: false,
     lastRemovedProduct: null,
     shoppingCart: [],
+<<<<<<< HEAD
+=======
+    // shoppingCart: [],
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
     isCartShown: false,
 }
 
@@ -56,6 +63,7 @@ export function productReducer(state = initialState, action) {
         case TOGGLE_CART_SHOWN:
             return { ...state, isCartShown: !state.isCartShown }
 
+<<<<<<< HEAD
         //todo case ADD_TO_CART:
         //     const { product } = action;
         //     const existingProductIndex = state.shoppingCart.findIndex(
@@ -77,6 +85,8 @@ export function productReducer(state = initialState, action) {
         //         return { ...state, shoppingCart: [...state.shoppingCart, newItem] };
         //     }
 
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
         case ADD_TO_CART:
             const { product } = action;
             const existingProductIndex = state.shoppingCart.findIndex(
@@ -91,24 +101,32 @@ export function productReducer(state = initialState, action) {
                         : item
                 );
 
+<<<<<<< HEAD
                 // Save the updated cart to session storage
                 sessionStorage.setItem('shoppingBag', JSON.stringify(updatedShoppingCart));
 
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
                 return { ...state, shoppingCart: updatedShoppingCart };
             } else {
                 // If the product doesn't exist in the cart, add it with quantity 1
                 const newItem = { product, quantity: 1 };
+<<<<<<< HEAD
 
                 // Update the shopping cart and save to session storage
                 const updatedShoppingCart = [...state.shoppingCart, newItem];
                 sessionStorage.setItem('shoppingBag', JSON.stringify(updatedShoppingCart));
 
                 return { ...state, shoppingCart: updatedShoppingCart };
+=======
+                return { ...state, shoppingCart: [...state.shoppingCart, newItem] };
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
             }
 
 
 
 
+<<<<<<< HEAD
         //todo case REMOVE_FROM_CART:
         //     const productIdToRemove = action.productId;
         //     const existingProductIndexRemove = state.shoppingCart.findIndex(
@@ -134,6 +152,13 @@ export function productReducer(state = initialState, action) {
         //             return { ...state, shoppingCart: updatedShoppingCart };
         //         }
         //     }
+=======
+
+
+        // case REMOVE_FROM_CART:
+        //     shoppingCart = state.shoppingCart.filter(p => p._id !== action.productId)
+        //     return { ...state, shoppingCart }
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 
         case REMOVE_FROM_CART:
             const productIdToRemove = action.productId;
@@ -151,16 +176,20 @@ export function productReducer(state = initialState, action) {
                             ? { ...item, quantity: item.quantity - 1 }
                             : item
                     );
+<<<<<<< HEAD
 
                     // Save the updated cart to session storage
                     sessionStorage.setItem('shoppingBag', JSON.stringify(updatedShoppingCart));
 
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
                     return { ...state, shoppingCart: updatedShoppingCart };
                 } else {
                     // If the quantity is 1 or less, remove the product from the cart
                     const updatedShoppingCart = state.shoppingCart.filter(
                         (item, index) => index !== existingProductIndexRemove
                     );
+<<<<<<< HEAD
 
                     // Save the updated cart to session storage
                     sessionStorage.setItem('shoppingBag', JSON.stringify(updatedShoppingCart));
@@ -172,6 +201,12 @@ export function productReducer(state = initialState, action) {
 
             case LOAD_SAVED_PRODUCTS:
                 return { ...state, shoppingCart: action.products };
+=======
+                    return { ...state, shoppingCart: updatedShoppingCart };
+                }
+            }
+
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
         // case CLEAR_CART:
         //     return { ...state, shoppingCart: [] }
 

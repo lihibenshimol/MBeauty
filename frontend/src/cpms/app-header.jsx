@@ -1,7 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+<<<<<<< HEAD
 import { SET_ADMIN } from "../store/user-reducer";
 import { logout } from "../store/user-action";
+=======
+import { SET_ADMIN } from "../store/admin-reducer";
+import { logout } from "../store/admin-action";
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 import { BsBasket } from 'react-icons/bs'
 import { TOGGLE_CART_SHOWN } from "../store/product-reducer";
 import { toggleCartShown } from "../store/product-action";
@@ -13,7 +18,11 @@ import { useMediaQuery } from '@react-hook/media-query';
 
 export function AppHeader() {
 
+<<<<<<< HEAD
     const user = useSelector((storeState => storeState.userModule.user))
+=======
+    const admin = useSelector((storeState => storeState.adminModule.admin))
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
     const isCartShown = useSelector((storeState => storeState.productModule.isCartShown))
     const cart = useSelector((storeState) => storeState.productModule.shoppingCart)
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false)
@@ -46,6 +55,7 @@ export function AppHeader() {
     return (
         <section className="app-header main-layout full">
             <div className="left-side-nav animate__animated animate__slideInLeft">
+<<<<<<< HEAD
 
                 {user && <div className="user-name">
 
@@ -54,6 +64,16 @@ export function AppHeader() {
                     </div>
                     {user.fullname} ,היי
 
+=======
+
+                {admin && <div className="admin-name">
+
+                    <div onClick={logout} className="logout-btn">
+                        Logout
+                    </div>
+                    {admin.fullname} ,היי
+
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
                 </div>
                 }
 
@@ -67,6 +87,7 @@ export function AppHeader() {
                     <div className={`prod-in-cart ${cart.length > 0 ? '' : 'false'}`}> {cartBadge()}</div>
                 </div>
                 {<ShoppingCart cart={cart} dispatch={dispatch} getCartTotal={getCartTotal} isCartShown={isCartShown} />}
+<<<<<<< HEAD
             </div>
             <div className={` animate__animated animate__slideInRight menu ${mobileMenuIsOpen ? 'open' : ''}`}>
 
@@ -87,6 +108,29 @@ export function AppHeader() {
 
 
             </div>
+=======
+
+            </div>
+            <div className={` animate__animated animate__slideInRight menu ${mobileMenuIsOpen ? 'open' : ''}`}>
+
+                <article className="menu-icon" onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}><AiOutlineMenu /></article>
+
+                <nav onClick={() => (isMobile ? setMobileMenuIsOpen(!mobileMenuIsOpen) : null)}>
+                {/* <nav onClick={() => setMobileMenuIsOpen(!mobileMenuIsOpen)}> */}
+                    {/* <nav> */}
+                    <NavLink to="/">דף הבית</NavLink>
+                    <NavLink to="/about">עלינו</NavLink>
+                    <NavLink to="/treatment">הטיפולים בקליניקה</NavLink>
+                    {/* <NavLink to="/dashboard">Dashboard</NavLink>| */}
+                    <NavLink to="/store">חנות</NavLink>
+                    <NavLink to="/contact">יצירת קשר</NavLink>
+                    {admin && <NavLink to="/admin-page"> עמוד מנהל</NavLink>}
+                </nav>
+
+
+
+            </div>
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 
         </section>
     )

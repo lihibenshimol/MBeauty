@@ -1,5 +1,9 @@
 import { useSelector } from "react-redux";
+<<<<<<< HEAD
 import { removeFromCart, toggleCartShown, loadSavedProducts } from "../store/product-action";
+=======
+import { removeFromCart, toggleCartShown } from "../store/product-action";
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 import { REMOVE_FROM_CART } from "../store/product-reducer";
 import { productService } from "../services/product-service"
 import { useEffect, useState } from "react";
@@ -10,6 +14,7 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
     const Navigate = useNavigate()
 
+<<<<<<< HEAD
     useEffect(() => {
         const savedProducts = JSON.parse(sessionStorage.getItem('shoppingBag')) || [];
 
@@ -19,6 +24,8 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
     }, []);
 
 
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
     function removeFromCart(productId, ev) {
         console.log(`Todo: remove: ${productId} from cart`)
         ev.stopPropagation()
@@ -27,7 +34,10 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
 
     function handleNavButtonClick(event, cmp) {
         event.stopPropagation();
+<<<<<<< HEAD
         toggleCartShown()
+=======
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
         Navigate(cmp)
     }
 
@@ -67,6 +77,11 @@ export function ShoppingCart({ cart, dispatch, isCartShown, getCartTotal }) {
                     )}
 
                     <div className="chackout">
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
                         סכום ביניים:  {getCartTotal()}
 
                         <button onClick={(event) => handleNavButtonClick(event, 'order-sum')} className="show-cart-btn">מעבר לסל הקניות</button>
