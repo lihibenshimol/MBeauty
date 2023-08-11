@@ -9,11 +9,7 @@ import { addToCart } from "../store/product-action.js"
 
 
 export function ProductDetails() {
-<<<<<<< HEAD
     const user = useSelector((storeState => storeState.userModule.user))
-=======
-    const admin = useSelector((storeState => storeState.adminModule.admin))
->>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
     const [product, setProduct] = useState(null)
     const { productId } = useParams()
     const navigate = useNavigate()
@@ -52,11 +48,7 @@ export function ProductDetails() {
                     <img src={product.img} style={{ width: 300 }} />
                     <span className="links">
                         <Link to={`/store`}>  חזרה לחנות </Link>
-<<<<<<< HEAD
                         {user && <Link to={`/product/edit/${product._id}`}>  | עריכת פרטי מוצר </Link>}
-=======
-                        {admin && <Link to={`/product/edit/${product._id}`}>  | עריכת פרטי מוצר </Link>}
->>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
                     </span>
                 </div>
                 <div className="content">

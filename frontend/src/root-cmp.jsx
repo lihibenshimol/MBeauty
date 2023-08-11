@@ -41,7 +41,7 @@ export function App() {
               <Route element={<ProductEdit />} path="/product/edit/:productId" />
             </Routes>
           </main>
-          {/* <AppFooter /> */}
+          <AppFooter />
           <Whatsapp />
         </section>
       </Router>

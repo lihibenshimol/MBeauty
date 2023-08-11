@@ -39,11 +39,11 @@ export function HomePage() {
             {/* <img className="logo" src={require(`../assets/img/hero/hero1.png`)} /> */}
             <div className='main-hero'>
 
-            <h1 className="title animate__animated animate__slideInUp">MBeauty</h1>
-            <div className='actions animate__animated animate__slideInUp'>
-                <NavLink className='cta booking' to="/contact"> <h1> תיאום תור </h1></NavLink>
-                <NavLink className='cta shop' to="/store"> <h1>  חנות </h1></NavLink>
-            </div>
+                <h1 className="title animate__animated animate__slideInUp">MBeauty</h1>
+                <div className='actions animate__animated animate__slideInUp'>
+                    <NavLink className='cta booking' to="/contact"> <h1> תיאום תור </h1></NavLink>
+                    <NavLink className='cta shop' to="/store"> <h1>  חנות </h1></NavLink>
+                </div>
 
             </div>
 
@@ -70,7 +70,7 @@ export function HomePage() {
 
                 </div>
 
-               <div className="text-info full">
+                <div className="text-info full">
                     <h1>Mbeauty salon</h1>
                     <article className='text'>
                         <p className='first'>
@@ -98,6 +98,17 @@ export function HomePage() {
                     </article>
                         <img className='element2' src={require('../assets/img/text-info2.png')} alt="" />
                 </div>
+
+                <section className='about-m'>
+                    <div>
+                        <h3>היי! בואי נכיר</h3>
+                        <p>נעים מאוד, אני מריאל בן שימול. לפני 5 שנים הקמתי את סלון היופי הראשון שלי בדימונה</p>
+                        <p>וממש השנה הוקם הסניף השני בראשון לציון.</p>
+                        <p>אני מאמינה בחדשות והתקדמות, באסתטיקה </p>
+                        <p>אני מאמינה להוסיף עוד מלא מלא תוכן ומיליםבחדשות והתקדמות, באסתטיקה </p> 
+                    </div>
+
+                </section>
 
             </div>
 

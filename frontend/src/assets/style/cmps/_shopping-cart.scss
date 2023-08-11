@@ -14,11 +14,7 @@
     z-index: 999;
 
     @include for-mobile-layout {
-<<<<<<< HEAD
         width: 50vw;
-=======
-        width: 70vw;
->>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
         min-height: 80vh;
         top: 50px;
         left: -10px;

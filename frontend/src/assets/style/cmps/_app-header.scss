@@ -32,7 +32,6 @@
         align-items: center;
         font-size: 18px;
 
-<<<<<<< HEAD
 
             .my-cart {
                 cursor: pointer;
@@ -48,21 +47,6 @@
                 }
             }
     
-=======
-        .my-cart {
-            cursor: pointer;
-            position: relative;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: rgb(49, 49, 49);
-
-            .basket-total {
-                font-size: 18px;
-            }
-        }
->>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 
         .admin-name {
             display: flex;
@@ -151,11 +135,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
-<<<<<<< HEAD
             font-size: 20px;
-=======
-            font-size: 500px;
->>>>>>> 77aaa366d4ce08215273186d154411b409b97fe1
 
             .my-cart {
                 cursor: pointer;
